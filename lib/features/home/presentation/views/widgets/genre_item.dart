@@ -10,11 +10,11 @@ class GenreItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 260.h,
+      width: 200.w,
       child: AspectRatio(
-        aspectRatio: 2.1 / 3,
+        aspectRatio: 2.3 / 3,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(32),
           child: CachedNetworkImage(
               progressIndicatorBuilder: (context, url, progress) =>
                   const CustomLoadingWidget(),

@@ -270,6 +270,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.27.7"
+  scaled_list:
+    dependency: "direct main"
+    description:
+      name: scaled_list
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.0.0"
+  scroll_snap_list:
+    dependency: "direct main"
+    description:
+      name: scroll_snap_list
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.9.1"
   size_config:
     dependency: "direct main"
     description:

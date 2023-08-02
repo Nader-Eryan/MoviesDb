@@ -10,14 +10,14 @@ class GenreTitlesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 360.w,
-      height: 120.h,
+      height: 100.h,
       child: ListView.builder(
         padding: const EdgeInsets.symmetric(vertical: 8),
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: TextButton(
             child: const Text(
               'Genre',
