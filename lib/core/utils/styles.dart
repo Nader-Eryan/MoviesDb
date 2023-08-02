@@ -1,16 +1,18 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Styles {
-  final textStyleBold16 =
-      const TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
-  final textStyleBold14 =
-      const TextStyle(fontSize: 14, fontWeight: FontWeight.bold);
-  final textStyleBold18 =
-      const TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
-  final textStyleMedium14 =
-      const TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
-  final textStyleBold24 =
-      const TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
-  final textStyleNormal12 =
-      const TextStyle(fontSize: 12, fontWeight: FontWeight.normal);
+  static const textStyleBold16 =
+      TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+  static const textStyleBold14 =
+      TextStyle(fontSize: 14, fontWeight: FontWeight.bold);
+  static const textStyleBold18 =
+      TextStyle(fontSize: 18, fontWeight: FontWeight.bold);
+  static const textStyleBold20 =
+      TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
+  static const textStyleMedium14 =
+      TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+  static const textStyleBold24 =
+      TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+  static const textStyleNormal12 =
+      TextStyle(fontSize: 12, fontWeight: FontWeight.normal);
 }
