@@ -19,16 +19,12 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
   void initState() {
     super.initState();
     periodicTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
-      controller.animateTo(controller.offset + 208,
-          duration: const Duration(milliseconds: 1500),
-          curve: Curves.decelerate);
+      if (controller.hasClients) {
+        controller.animateTo(controller.offset + 208,
+            duration: const Duration(milliseconds: 1500),
+            curve: Curves.decelerate);
+      }
     });
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
   }
 
   @override

@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: ThemeData(
+                    tabBarTheme: const TabBarTheme(
+                      labelColor: kActiveIcon,
+                    ),
                     brightness: BlocProvider.of<BrightnessCubit>(context).isDark
                         ? Brightness.dark
                         : Brightness.light,
