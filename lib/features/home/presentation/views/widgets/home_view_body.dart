@@ -1,6 +1,6 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_item.dart';
 
 import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_items_list_view.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/widgets/text_row_home_view.dart';
@@ -50,6 +50,21 @@ class HomeViewBody extends StatelessWidget {
             child: TextRowHomeView(),
           ),
         ),
+        SliverToBoxAdapter(
+          child: SizedBox(
+            height: 300.h,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemBuilder: ((context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: GenreItem(
+                      width: 130.w,
+                    ),
+                  );
+                })),
+          ),
+        )
       ],
     );
   }

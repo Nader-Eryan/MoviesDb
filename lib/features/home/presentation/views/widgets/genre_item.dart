@@ -6,15 +6,16 @@ import '../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../core/widgets/loading_widget.dart';
 
 class GenreItem extends StatelessWidget {
-  const GenreItem({super.key});
+  const GenreItem({super.key, this.width});
+  final double? width;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200.w,
+      width: width ?? 200.w,
       child: AspectRatio(
         aspectRatio: 2.3 / 3,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(32),
+          borderRadius: BorderRadius.circular(24),
           child: CachedNetworkImage(
               progressIndicatorBuilder: (context, url, progress) =>
                   const CustomLoadingWidget(),
