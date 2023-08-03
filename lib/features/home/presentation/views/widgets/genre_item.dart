@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
-import '../../../../../core/utils/custom_error_widget.dart';
-import '../../../../../core/utils/loading_widget.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/loading_widget.dart';
 
 class GenreItem extends StatelessWidget {
   const GenreItem({super.key});

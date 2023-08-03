@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
-import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 
+import 'core/utils/functions/custom_app_theme.dart';
 import 'features/home/presentation/views/home_view.dart';
 
 void main() {
@@ -29,19 +29,7 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                    tabBarTheme: const TabBarTheme(
-                      labelColor: kActiveIcon,
-                    ),
-                    brightness: BlocProvider.of<BrightnessCubit>(context).isDark
-                        ? Brightness.dark
-                        : Brightness.light,
-                    fontFamily: 'Montserrat',
-                    primaryColorDark: kPrimaryDarkTheme,
-                    primaryColorLight: kPrimaryLightTheme,
-                    scaffoldBackgroundColor: kPrimaryDarkTheme,
-                    appBarTheme: const AppBarTheme(
-                        backgroundColor: kPrimaryDarkTheme, elevation: 0)),
+                theme: CustomAppTheme(context),
                 home: const HomeView(),
               );
             },
