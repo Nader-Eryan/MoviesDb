@@ -14,14 +14,21 @@ class GenreItemsListView extends StatefulWidget {
 
 class _GenreItemsListViewState extends State<GenreItemsListView> {
   ScrollController controller = ScrollController();
+  late Timer periodicTimer;
   @override
   void initState() {
     super.initState();
-    Timer.periodic(const Duration(seconds: 5), (timer) {
+    periodicTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
       controller.animateTo(controller.offset + 208,
           duration: const Duration(milliseconds: 1500),
           curve: Curves.decelerate);
     });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
   }
 
   @override
@@ -38,6 +45,9 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
         itemCount: 100,
         listController: controller,
         onItemFocus: (_) {},
+        onReachEnd: () {
+          periodicTimer.cancel();
+        },
       )),
     );
   }
