@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:size_config/size_config.dart';
-import 'package:whats_for_tonight/core/utils/constants.dart';
 
-import '../../../../core/utils/styles.dart';
+import '../../../../core/utils/functions/custom_app_bar.dart';
 import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -36,35 +34,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80.h,
-        elevation: 0,
-        title: const Text(
-          'MoviesDb',
-          style: Styles.textStyleBold20,
-        ),
-        bottom: TabBar(
-          padding: const EdgeInsets.symmetric(vertical: 2),
-          unselectedLabelColor: Colors.white,
-          indicatorColor: kActiveIcon,
-          labelStyle:
-              Styles.textStyleBold16.copyWith(fontWeight: FontWeight.w500),
-          indicatorSize: TabBarIndicatorSize.label,
-          isScrollable: true,
-          controller: _tabController,
-          tabs: list,
-        ),
-        centerTitle: true,
-        actions: const [
-          CircleAvatar(
-            radius: 24,
-            backgroundImage: AssetImage('assets/images/perAvr.png'),
-          ),
-          SizedBox(
-            width: 12,
-          )
-        ],
-      ),
+      appBar: customAppBar(list, _tabController),
       body: HomeViewBody(
         tabController: _tabController,
       ),
