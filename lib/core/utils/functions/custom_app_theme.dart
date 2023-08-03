@@ -4,7 +4,7 @@ import 'package:whats_for_tonight/core/utils/constants.dart';
 
 import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
 
-ThemeData CustomAppTheme(BuildContext context) {
+ThemeData customAppTheme(BuildContext context) {
   return ThemeData(
     tabBarTheme: const TabBarTheme(
       labelColor: kActiveIcon,

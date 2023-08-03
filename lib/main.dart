@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
             builder: (context, state) {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
-                theme: CustomAppTheme(context),
+                theme: customAppTheme(context),
                 home: const HomeView(),
               );
             },
