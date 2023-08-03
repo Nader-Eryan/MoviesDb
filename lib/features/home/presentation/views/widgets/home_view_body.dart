@@ -35,6 +35,9 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: GenreItemsListView(),
         ),
+        SliverToBoxAdapter(
+          child: Text('We recommend'),
+        ),
       ],
     );
   }
