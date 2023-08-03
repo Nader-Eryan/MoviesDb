@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'brightness_state.dart';
 
 class BrightnessCubit extends Cubit<BrightnessState> {
-  bool isDark = false;
+  bool isDark = true;
   BrightnessCubit() : super(BrightnessInitial());
   void switchBrightnessMode() {
     isDark = !isDark;
