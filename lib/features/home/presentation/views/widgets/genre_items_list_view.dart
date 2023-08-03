@@ -20,7 +20,7 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
     super.initState();
     periodicTimer = Timer.periodic(const Duration(seconds: 5), (timer) {
       if (controller.hasClients) {
-        controller.animateTo(controller.offset + 208,
+        controller.animateTo(controller.offset + 208.w,
             duration: const Duration(milliseconds: 1500),
             curve: Curves.decelerate);
       }

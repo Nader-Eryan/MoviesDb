@@ -12,6 +12,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late final TabController _tabController;
+  late final ScrollController bottomScrollController;
   List<Widget> list = [
     const Text('Action'),
     const Text('Drama'),
@@ -23,11 +24,13 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(length: 5, vsync: this);
+    bottomScrollController = ScrollController();
   }
 
   @override
   void dispose() {
     _tabController.dispose();
+    bottomScrollController.dispose();
     super.dispose();
   }
 
@@ -37,6 +40,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
       appBar: customAppBar(list, _tabController),
       body: HomeViewBody(
         tabController: _tabController,
+        bottomScrollController: bottomScrollController,
       ),
     );
   }

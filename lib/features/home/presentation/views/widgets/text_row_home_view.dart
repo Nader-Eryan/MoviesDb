@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:size_config/size_config.dart';
 
 import '../../../../../core/utils/styles.dart';
 
 class TextRowHomeView extends StatelessWidget {
-  const TextRowHomeView({super.key});
-
+  const TextRowHomeView({super.key, this.bottomScrollController});
+  final bottomScrollController;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -21,7 +22,14 @@ class TextRowHomeView extends StatelessWidget {
             border: Border.all(width: 1, color: Colors.grey.shade600),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              if (bottomScrollController.hasClients) {
+                bottomScrollController.animateTo(
+                    bottomScrollController.offset - 150.w,
+                    duration: const Duration(milliseconds: 1000),
+                    curve: Curves.decelerate);
+              }
+            },
             icon: const Icon(
               Icons.arrow_back_ios_new,
               size: 14,
@@ -35,7 +43,14 @@ class TextRowHomeView extends StatelessWidget {
             border: Border.all(width: 1, color: Colors.grey.shade600),
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              if (bottomScrollController.hasClients) {
+                bottomScrollController.animateTo(
+                    bottomScrollController.offset + 150.w,
+                    duration: const Duration(milliseconds: 1000),
+                    curve: Curves.decelerate);
+              }
+            },
             icon: const Icon(
               Icons.arrow_forward_ios,
               size: 14,
