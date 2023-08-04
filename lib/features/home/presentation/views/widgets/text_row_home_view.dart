@@ -26,7 +26,7 @@ class TextRowHomeView extends StatelessWidget {
             onPressed: () {
               if (bottomScrollController.hasClients) {
                 bottomScrollController.animateTo(
-                    bottomScrollController.offset - 150.w,
+                    bottomScrollController.offset - 158.w,
                     duration: const Duration(milliseconds: 1000),
                     curve: Curves.decelerate);
               }
@@ -47,7 +47,7 @@ class TextRowHomeView extends StatelessWidget {
             onPressed: () {
               if (bottomScrollController.hasClients) {
                 bottomScrollController.animateTo(
-                    bottomScrollController.offset + 150.w,
+                    bottomScrollController.offset + 158.w,
                     duration: const Duration(milliseconds: 1000),
                     curve: Curves.decelerate);
               }

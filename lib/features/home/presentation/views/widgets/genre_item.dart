@@ -13,7 +13,7 @@ class GenreItem extends StatelessWidget {
     return SizedBox(
       width: width ?? 200.w,
       child: AspectRatio(
-        aspectRatio: 2.3 / 3,
+        aspectRatio: 2.4 / 3,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(24),
           child: CachedNetworkImage(

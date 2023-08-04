@@ -54,7 +54,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 300.h,
+            height: 240.h,
             child: ListView.builder(
                 controller: bottomScrollController,
                 physics: const BouncingScrollPhysics(),
@@ -63,7 +63,7 @@ class HomeViewBody extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.all(10),
                     child: GenreItem(
-                      width: 130.w,
+                      width: 140.w,
                     ),
                   );
                 })),

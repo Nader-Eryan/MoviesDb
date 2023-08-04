@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/utils/functions/custom_app_bar.dart';
+import '../../../custom_button_navigation.dart/presentation/views/widgets/custom_bottom_navigation.dart';
 import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -37,6 +38,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const CustomBottomNavigation(),
       appBar: customAppBar(list, _tabController),
       body: HomeViewBody(
         tabController: _tabController,
