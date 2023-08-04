@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
@@ -6,8 +7,13 @@ import '../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../core/widgets/loading_widget.dart';
 
 class GenreItem extends StatelessWidget {
-  const GenreItem({super.key, this.width});
+  const GenreItem({
+    Key? key,
+    this.width,
+    this.borderRadius,
+  }) : super(key: key);
   final double? width;
+  final BorderRadius? borderRadius;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -15,7 +21,7 @@ class GenreItem extends StatelessWidget {
       child: AspectRatio(
         aspectRatio: 2.4 / 3,
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(24),
+          borderRadius: borderRadius ?? BorderRadius.circular(24),
           child: CachedNetworkImage(
               progressIndicatorBuilder: (context, url, progress) =>
                   const CustomLoadingWidget(),
