@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 
 import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
 import '../constants.dart';
@@ -34,18 +35,21 @@ AppBar customAppBar(
         ),
       ],
     ),
-    bottom: TabBar(
-      padding: const EdgeInsets.symmetric(vertical: 2),
-      unselectedLabelColor: BlocProvider.of<BrightnessCubit>(ctx).isDark
-          ? Colors.white
-          : Colors.black,
-      indicatorColor: kActiveIcon,
-      labelStyle: Styles.textStyleBold18.copyWith(fontWeight: FontWeight.w500),
-      indicatorSize: TabBarIndicatorSize.label,
-      isScrollable: true,
-      controller: tabController,
-      tabs: list,
-    ),
+    bottom: BlocProvider.of<PageIndexCubit>(ctx).currentPageIndex == 0
+        ? TabBar(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            unselectedLabelColor: BlocProvider.of<BrightnessCubit>(ctx).isDark
+                ? Colors.white
+                : Colors.black,
+            indicatorColor: kActiveIcon,
+            labelStyle:
+                Styles.textStyleBold18.copyWith(fontWeight: FontWeight.w500),
+            indicatorSize: TabBarIndicatorSize.label,
+            isScrollable: true,
+            controller: tabController,
+            tabs: list,
+          )
+        : null,
     centerTitle: true,
     actions: const [
       CircleAvatar(
