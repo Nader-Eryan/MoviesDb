@@ -8,35 +8,35 @@ import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart'
 import '../constants.dart';
 import '../styles.dart';
 
-AppBar customAppBar(
+AppBar? customAppBar(
     BuildContext ctx, List<Widget> list, TabController tabController) {
-  return AppBar(
-    systemOverlayStyle:
-        SystemUiOverlayStyle.light.copyWith(statusBarColor: kPrimaryDarkTheme),
-    toolbarHeight: 90.h,
-    elevation: 0,
-    title: Text(
-      'MoviesDb',
-      style: Styles.textStyleBold20.copyWith(
-          color: BlocProvider.of<BrightnessCubit>(ctx).isDark
-              ? Colors.white
-              : Colors.black),
-    ),
-    leading: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const SizedBox(
-          width: 2,
-        ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(40.0),
-          child: Image.asset('assets/images/logo.jpg',
-              height: 50.0, width: 50.0, fit: BoxFit.contain),
-        ),
-      ],
-    ),
-    bottom: BlocProvider.of<PageIndexCubit>(ctx).currentPageIndex == 0
-        ? TabBar(
+  return BlocProvider.of<PageIndexCubit>(ctx).currentPageIndex == 0
+      ? AppBar(
+          systemOverlayStyle: SystemUiOverlayStyle.light
+              .copyWith(statusBarColor: kPrimaryDarkTheme),
+          toolbarHeight: 90.h,
+          elevation: 0,
+          title: Text(
+            'MoviesDb',
+            style: Styles.textStyleBold20.copyWith(
+                color: BlocProvider.of<BrightnessCubit>(ctx).isDark
+                    ? Colors.white
+                    : Colors.black),
+          ),
+          leading: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(
+                width: 2,
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(40.0),
+                child: Image.asset('assets/images/logo.jpg',
+                    height: 50.0, width: 50.0, fit: BoxFit.contain),
+              ),
+            ],
+          ),
+          bottom: TabBar(
             padding: const EdgeInsets.symmetric(vertical: 2),
             unselectedLabelColor: BlocProvider.of<BrightnessCubit>(ctx).isDark
                 ? Colors.white
@@ -48,17 +48,17 @@ AppBar customAppBar(
             isScrollable: true,
             controller: tabController,
             tabs: list,
-          )
-        : null,
-    centerTitle: true,
-    actions: const [
-      CircleAvatar(
-        radius: 28,
-        backgroundImage: AssetImage('assets/images/perAvr.png'),
-      ),
-      SizedBox(
-        width: 12,
-      )
-    ],
-  );
+          ),
+          centerTitle: true,
+          actions: const [
+            CircleAvatar(
+              radius: 28,
+              backgroundImage: AssetImage('assets/images/perAvr.png'),
+            ),
+            SizedBox(
+              width: 12,
+            )
+          ],
+        )
+      : null;
 }
