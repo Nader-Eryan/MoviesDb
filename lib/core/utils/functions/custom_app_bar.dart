@@ -18,8 +18,8 @@ AppBar customAppBar(
       'MoviesDb',
       style: Styles.textStyleBold20.copyWith(
           color: BlocProvider.of<BrightnessCubit>(ctx).isDark
-              ? kPrimaryLightTheme
-              : kPrimaryDarkTheme),
+              ? Colors.white
+              : Colors.black),
     ),
     leading: Row(
       mainAxisAlignment: MainAxisAlignment.center,
