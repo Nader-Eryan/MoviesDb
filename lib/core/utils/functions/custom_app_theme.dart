@@ -26,5 +26,6 @@ ThemeData customAppTheme(BuildContext context) {
             ? kPrimaryDarkTheme
             : kPrimaryLightTheme,
         elevation: 0),
+    primarySwatch: Colors.amber,
   );
 }
