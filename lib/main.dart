@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 
 import 'core/utils/functions/custom_app_theme.dart';
@@ -30,7 +31,10 @@ class MyApp extends StatelessWidget {
               return MaterialApp(
                 debugShowCheckedModeBanner: false,
                 theme: customAppTheme(context),
-                home: const HomeView(),
+                home: BlocProvider(
+                  create: (context) => PageIndexCubit(),
+                  child: const HomeView(),
+                ),
               );
             },
           ),

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
+import 'package:whats_for_tonight/features/search/presentation/views/search_view.dart';
 
 import '../../../../core/utils/functions/custom_app_bar.dart';
 import '../../../custom_button_navigation.dart/presentation/views/widgets/custom_bottom_navigation.dart';
@@ -14,6 +17,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   late final TabController _tabController;
   late final ScrollController bottomScrollController;
+  int currentPageIndex = 0;
   List<Widget> list = [
     const Text('Action'),
     const Text('Drama'),
@@ -37,13 +41,19 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const CustomBottomNavigation(),
-      appBar: customAppBar(context, list, _tabController),
-      body: HomeViewBody(
-        tabController: _tabController,
-        bottomScrollController: bottomScrollController,
-      ),
+    return BlocBuilder<PageIndexCubit, PageIndexState>(
+      builder: (context, state) {
+        return Scaffold(
+            bottomNavigationBar: const CustomBottomNavigation(),
+            appBar: customAppBar(context, list, _tabController),
+            body: [
+              HomeViewBody(
+                tabController: _tabController,
+                bottomScrollController: bottomScrollController,
+              ),
+              const SearchView(),
+            ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]);
+      },
     );
   }
 }
