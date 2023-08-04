@@ -14,23 +14,23 @@ AppBar customAppBar(
         SystemUiOverlayStyle.light.copyWith(statusBarColor: kPrimaryDarkTheme),
     toolbarHeight: 90.h,
     elevation: 0,
-    title: Row(
+    title: Text(
+      'MoviesDb',
+      style: Styles.textStyleBold20.copyWith(
+          color: BlocProvider.of<BrightnessCubit>(ctx).isDark
+              ? kPrimaryLightTheme
+              : kPrimaryDarkTheme),
+    ),
+    leading: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
+        const SizedBox(
+          width: 2,
+        ),
         ClipRRect(
           borderRadius: BorderRadius.circular(40.0),
           child: Image.asset('assets/images/logo.jpg',
               height: 50.0, width: 50.0, fit: BoxFit.contain),
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        Text(
-          'MoviesDb',
-          style: Styles.textStyleBold20.copyWith(
-              color: BlocProvider.of<BrightnessCubit>(ctx).isDark
-                  ? kPrimaryLightTheme
-                  : kPrimaryDarkTheme),
         ),
       ],
     ),
@@ -40,7 +40,7 @@ AppBar customAppBar(
           ? Colors.white
           : Colors.black,
       indicatorColor: kActiveIcon,
-      labelStyle: Styles.textStyleBold16.copyWith(fontWeight: FontWeight.w500),
+      labelStyle: Styles.textStyleBold18.copyWith(fontWeight: FontWeight.w500),
       indicatorSize: TabBarIndicatorSize.label,
       isScrollable: true,
       controller: tabController,
@@ -49,7 +49,7 @@ AppBar customAppBar(
     centerTitle: true,
     actions: const [
       CircleAvatar(
-        radius: 22,
+        radius: 28,
         backgroundImage: AssetImage('assets/images/perAvr.png'),
       ),
       SizedBox(
