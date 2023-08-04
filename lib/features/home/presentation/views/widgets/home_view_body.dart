@@ -2,9 +2,10 @@
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
-import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_item.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_items_list_view.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/widgets/text_row_home_view.dart';
+
+import 'bottom_list_view.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({
@@ -54,19 +55,9 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 240.h,
-            child: ListView.builder(
-                controller: bottomScrollController,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                itemBuilder: ((context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: GenreItem(
-                      width: 140.w,
-                    ),
-                  );
-                })),
+            height: 260.h,
+            child:
+                BottomListView(bottomScrollController: bottomScrollController),
           ),
         ),
       ],

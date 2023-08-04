@@ -13,7 +13,7 @@ class TextRowHomeView extends StatelessWidget {
       children: [
         const Text(
           'We recommend',
-          style: Styles.textStyleBold16,
+          style: Styles.textStyleBold18,
         ),
         const Spacer(),
         Container(
