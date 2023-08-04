@@ -39,7 +39,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const CustomBottomNavigation(),
-      appBar: customAppBar(list, _tabController),
+      appBar: customAppBar(context, list, _tabController),
       body: HomeViewBody(
         tabController: _tabController,
         bottomScrollController: bottomScrollController,

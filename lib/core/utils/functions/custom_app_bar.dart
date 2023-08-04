@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
 
+import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
 import '../constants.dart';
 import '../styles.dart';
 
-AppBar customAppBar(List<Widget> list, TabController tabController) {
+AppBar customAppBar(
+    BuildContext ctx, List<Widget> list, TabController tabController) {
   return AppBar(
     toolbarHeight: 90.h,
     elevation: 0,
@@ -19,15 +22,20 @@ AppBar customAppBar(List<Widget> list, TabController tabController) {
         const SizedBox(
           width: 16,
         ),
-        const Text(
+        Text(
           'MoviesDb',
-          style: Styles.textStyleBold20,
+          style: Styles.textStyleBold20.copyWith(
+              color: BlocProvider.of<BrightnessCubit>(ctx).isDark
+                  ? kPrimaryLightTheme
+                  : kPrimaryDarkTheme),
         ),
       ],
     ),
     bottom: TabBar(
       padding: const EdgeInsets.symmetric(vertical: 2),
-      unselectedLabelColor: Colors.white,
+      unselectedLabelColor: BlocProvider.of<BrightnessCubit>(ctx).isDark
+          ? Colors.white
+          : Colors.black,
       indicatorColor: kActiveIcon,
       labelStyle: Styles.textStyleBold16.copyWith(fontWeight: FontWeight.w500),
       indicatorSize: TabBarIndicatorSize.label,

@@ -6,7 +6,10 @@ import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart'
 
 ThemeData customAppTheme(BuildContext context) {
   return ThemeData(
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: TabBarTheme(
+      unselectedLabelColor: BlocProvider.of<BrightnessCubit>(context).isDark
+          ? kPrimaryLightTheme
+          : kPrimaryDarkTheme,
       labelColor: kActiveIcon,
     ),
     brightness: BlocProvider.of<BrightnessCubit>(context).isDark
@@ -15,8 +18,13 @@ ThemeData customAppTheme(BuildContext context) {
     fontFamily: 'Montserrat',
     primaryColorDark: kPrimaryDarkTheme,
     primaryColorLight: kPrimaryLightTheme,
-    scaffoldBackgroundColor: kPrimaryDarkTheme,
-    appBarTheme:
-        const AppBarTheme(backgroundColor: kPrimaryDarkTheme, elevation: 0),
+    scaffoldBackgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
+        ? kPrimaryDarkTheme
+        : kPrimaryLightTheme,
+    appBarTheme: AppBarTheme(
+        backgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
+            ? kPrimaryDarkTheme
+            : kPrimaryLightTheme,
+        elevation: 0),
   );
 }
