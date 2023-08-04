@@ -13,6 +13,8 @@ class Styles {
       TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
   static const textStyleBold24 =
       TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
+  static const textStyleBold28 =
+      TextStyle(fontSize: 28, fontWeight: FontWeight.bold);
   static const textStyleNormal12 =
       TextStyle(fontSize: 12, fontWeight: FontWeight.normal);
 }
