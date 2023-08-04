@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
 
@@ -9,6 +10,8 @@ import '../styles.dart';
 AppBar customAppBar(
     BuildContext ctx, List<Widget> list, TabController tabController) {
   return AppBar(
+    systemOverlayStyle:
+        SystemUiOverlayStyle.light.copyWith(statusBarColor: kPrimaryDarkTheme),
     toolbarHeight: 90.h,
     elevation: 0,
     title: Row(
