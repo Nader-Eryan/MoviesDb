@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
   const CustomBottomNavigation({super.key});
@@ -34,9 +32,9 @@ class CustomBottomNavigation extends StatelessWidget {
           onDestinationSelected: (int index) {
             BlocProvider.of<PageIndexCubit>(context).changePageIndex(index);
           },
-          backgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
-              ? kPrimaryDarkTheme
-              : kPrimaryLightTheme,
+          // backgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
+          //     ? kPrimaryDarkTheme
+          //     : kPrimaryLightTheme,
         );
       },
     );
