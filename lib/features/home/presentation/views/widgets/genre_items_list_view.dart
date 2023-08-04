@@ -31,7 +31,6 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400.h,
-      width: 360.w,
       child: Expanded(
           child: ScrollSnapList(
         scrollPhysics: const BouncingScrollPhysics(),

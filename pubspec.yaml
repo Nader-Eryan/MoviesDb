@@ -43,6 +43,7 @@ dependencies:
   scaled_list: ^2.0.0
   scroll_snap_list: ^0.9.1
   flutter_svg: ^1.1.6
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:
