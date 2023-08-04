@@ -6,11 +6,24 @@ import '../styles.dart';
 
 AppBar customAppBar(List<Widget> list, TabController tabController) {
   return AppBar(
-    toolbarHeight: 80.h,
+    toolbarHeight: 90.h,
     elevation: 0,
-    title: const Text(
-      'MoviesDb',
-      style: Styles.textStyleBold20,
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(40.0),
+          child: Image.asset('assets/images/logo.jpg',
+              height: 50.0, width: 50.0, fit: BoxFit.contain),
+        ),
+        const SizedBox(
+          width: 16,
+        ),
+        const Text(
+          'MoviesDb',
+          style: Styles.textStyleBold20,
+        ),
+      ],
     ),
     bottom: TabBar(
       padding: const EdgeInsets.symmetric(vertical: 2),
@@ -25,7 +38,7 @@ AppBar customAppBar(List<Widget> list, TabController tabController) {
     centerTitle: true,
     actions: const [
       CircleAvatar(
-        radius: 24,
+        radius: 22,
         backgroundImage: AssetImage('assets/images/perAvr.png'),
       ),
       SizedBox(
