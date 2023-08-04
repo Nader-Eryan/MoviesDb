@@ -20,9 +20,6 @@ class HomeViewBody extends StatelessWidget {
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
-        // SliverToBoxAdapter(
-        //   child: GenreTitlesListView(),
-        // ),
         const SliverToBoxAdapter(
           child: SizedBox(
             height: 20,
@@ -30,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 400.h,
+            height: 350.h,
             child: TabBarView(
               controller: tabController,
               children: const [
@@ -50,7 +47,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
             child:
                 TextRowHomeView(bottomScrollController: bottomScrollController),
           ),

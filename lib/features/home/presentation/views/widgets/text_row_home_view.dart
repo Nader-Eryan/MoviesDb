@@ -58,9 +58,6 @@ class TextRowHomeView extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(
-          width: 8,
-        )
       ],
     );
   }

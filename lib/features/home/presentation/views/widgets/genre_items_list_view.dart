@@ -33,6 +33,7 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
       height: 400.h,
       child: Expanded(
           child: ScrollSnapList(
+        padding: const EdgeInsets.all(0),
         scrollPhysics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) => const GenreItem(),
         itemSize: 200.w,
