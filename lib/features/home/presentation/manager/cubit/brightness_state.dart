@@ -5,6 +5,4 @@ abstract class BrightnessState {}
 
 class BrightnessInitial extends BrightnessState {}
 
-class BrightnessDark extends BrightnessState {}
-
-class BrightnessLight extends BrightnessState {}
+class BrightnessChange extends BrightnessState {}

@@ -3,14 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'brightness_state.dart';
 
 class BrightnessCubit extends Cubit<BrightnessState> {
-  bool isDark = true;
+  bool _isDark = false;
+  bool get isDark => _isDark;
+
   BrightnessCubit() : super(BrightnessInitial());
   void switchBrightnessMode() {
-    isDark = !isDark;
+    _isDark = !_isDark;
     if (isDark) {
-      emit(BrightnessDark());
+      emit(BrightnessChange());
     } else {
-      emit(BrightnessLight());
+      emit(BrightnessChange());
     }
   }
 }
