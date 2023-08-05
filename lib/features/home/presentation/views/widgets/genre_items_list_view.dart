@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
-import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_item.dart';
+import 'package:whats_for_tonight/core/widgets/item_details.dart';
+import 'package:whats_for_tonight/core/widgets/list_item.dart';
 
 class GenreItemsListView extends StatefulWidget {
   const GenreItemsListView({super.key});
@@ -35,22 +36,27 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
       child: ScrollSnapList(
         padding: const EdgeInsets.all(0),
         scrollPhysics: const BouncingScrollPhysics(),
-        itemBuilder: (context, index) =>
-            Stack(fit: StackFit.values.last, children: [
-          const GenreItem(),
-          Positioned(
-              left: 20.w,
-              top: 240.h,
-              child: SizedBox(
-                width: 160.w,
-                child: const Text(
-                  'Movie title Movieffs title Movie title',
-                  style: Styles.textStyleBold28,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 2,
-                ),
-              )),
-        ]),
+        itemBuilder: (context, index) => GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const ItemDetails()));
+          },
+          child: Stack(fit: StackFit.values.last, children: [
+            const ListItem(),
+            Positioned(
+                left: 20.w,
+                top: 240.h,
+                child: SizedBox(
+                  width: 160.w,
+                  child: const Text(
+                    'Movie title Movieffs title Movie title',
+                    style: Styles.textStyleBold28,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                )),
+          ]),
+        ),
         itemSize: 200.w,
         dynamicItemSize: true,
         itemCount: 100,

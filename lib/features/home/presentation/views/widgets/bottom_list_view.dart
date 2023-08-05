@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
 
-import 'genre_item.dart';
+import '../../../../../core/widgets/item_details.dart';
+import '../../../../../core/widgets/list_item.dart';
 
 class BottomListView extends StatelessWidget {
   const BottomListView({super.key, required this.bottomScrollController});
@@ -21,30 +22,36 @@ class BottomListView extends StatelessWidget {
             itemBuilder: ((context, index) {
               return Padding(
                 padding: const EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Expanded(
-                      child: GenreItem(
-                        width: 140.w,
-                        borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(16),
-                            topRight: Radius.circular(16),
-                            bottomLeft: Radius.zero),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ItemDetails()));
+                  },
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: ListItem(
+                          width: 140.w,
+                          borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              topRight: Radius.circular(16),
+                              bottomLeft: Radius.zero),
+                        ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    const SizedBox(
-                      width: 140,
-                      height: 20,
-                      child: Text(
-                        'Movie title Movie app',
-                        style: Styles.textStyleBold16,
-                        overflow: TextOverflow.ellipsis,
+                      const SizedBox(
+                        height: 4,
                       ),
-                    ),
-                  ],
+                      const SizedBox(
+                        width: 140,
+                        height: 20,
+                        child: Text(
+                          'Movie title Movie app',
+                          style: Styles.textStyleBold16,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             }),
