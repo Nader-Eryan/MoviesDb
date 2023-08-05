@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
+import 'package:whats_for_tonight/features/favorites/presentation/views/favorites_view.dart';
 import 'package:whats_for_tonight/features/search/presentation/views/search_view.dart';
 
 import '../../../../core/utils/functions/custom_app_bar.dart';
 import '../../../custom_button_navigation.dart/presentation/views/widgets/custom_bottom_navigation.dart';
+import '../../../profile/presentation/views/profile_view.dart';
 import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -52,6 +54,8 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                 bottomScrollController: bottomScrollController,
               ),
               const SearchView(),
+              const FavoritesView(),
+              const ProfileView(),
             ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]);
       },
     );
