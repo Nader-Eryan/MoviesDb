@@ -32,8 +32,7 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 400.h,
-      child: Expanded(
-          child: ScrollSnapList(
+      child: ScrollSnapList(
         padding: const EdgeInsets.all(0),
         scrollPhysics: const BouncingScrollPhysics(),
         itemBuilder: (context, index) =>
@@ -60,7 +59,7 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
         onReachEnd: () {
           periodicTimer.cancel();
         },
-      )),
+      ),
     );
   }
 }
