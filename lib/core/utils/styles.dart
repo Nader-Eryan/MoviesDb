@@ -11,6 +11,8 @@ class Styles {
       TextStyle(fontSize: 20, fontWeight: FontWeight.bold);
   static const textStyleMedium14 =
       TextStyle(fontSize: 14, fontWeight: FontWeight.w500);
+  static const textStyleMedium16 =
+      TextStyle(fontSize: 16, fontWeight: FontWeight.w500);
   static const textStyleBold24 =
       TextStyle(fontSize: 24, fontWeight: FontWeight.bold);
   static const textStyleBold28 =
