@@ -53,9 +53,10 @@ class CustomBottomNavigation extends StatelessWidget {
           onDestinationSelected: (int index) {
             BlocProvider.of<PageIndexCubit>(context).changePageIndex(index);
           },
-          backgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
-              ? const Color.fromARGB(31, 218, 214, 214)
-              : const Color.fromARGB(255, 238, 232, 232),
+          backgroundColor:
+              BlocProvider.of<BrightnessCubit>(context, listen: true).isDark
+                  ? const Color.fromARGB(31, 218, 214, 214)
+                  : const Color.fromARGB(255, 238, 232, 232),
         );
       },
     );
