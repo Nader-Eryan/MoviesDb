@@ -12,7 +12,7 @@ ThemeData customAppTheme(BuildContext context) {
           : kPrimaryDarkTheme,
       labelColor: kActiveIcon,
     ),
-    brightness: BlocProvider.of<BrightnessCubit>(context).isDark
+    brightness: BlocProvider.of<BrightnessCubit>(context, listen: true).isDark
         ? Brightness.dark
         : Brightness.light,
     fontFamily: 'Montserrat',
