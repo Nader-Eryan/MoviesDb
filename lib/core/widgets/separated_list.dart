@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
-import 'item_details.dart';
+import '../../features/item_details/presentation/views/item_details.dart';
 import 'list_item.dart';
 import '../utils/styles.dart';
 

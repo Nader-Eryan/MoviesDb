@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
-import 'package:whats_for_tonight/core/widgets/item_details.dart';
+import 'package:whats_for_tonight/features/item_details/presentation/views/item_details.dart';
 import 'package:whats_for_tonight/core/widgets/list_item.dart';
 
 class GenreItemsListView extends StatefulWidget {

@@ -5,8 +5,7 @@ import '../../../../../core/utils/styles.dart';
 
 class TextRowHomeView extends StatelessWidget {
   const TextRowHomeView({super.key, required this.bottomScrollController});
-  // ignore: prefer_typing_uninitialized_variables
-  final bottomScrollController;
+  final ScrollController bottomScrollController;
   @override
   Widget build(BuildContext context) {
     return Row(

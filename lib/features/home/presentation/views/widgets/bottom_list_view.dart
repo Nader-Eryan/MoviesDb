@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
 
-import '../../../../../core/widgets/item_details.dart';
+import '../../../../item_details/presentation/views/item_details.dart';
 import '../../../../../core/widgets/list_item.dart';
 
 class BottomListView extends StatelessWidget {
