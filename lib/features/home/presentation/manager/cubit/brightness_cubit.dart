@@ -5,11 +5,11 @@ part 'brightness_state.dart';
 
 class BrightnessCubit extends Cubit<BrightnessState> {
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-  bool _isDark = false;
+  bool _isDark = true;
   bool get isDark => _isDark;
   Future<void> sharedPrefsInit() async {
     final SharedPreferences prefs = await _prefs;
-    _isDark = prefs.getBool('isDark') ?? false;
+    _isDark = prefs.getBool('isDark') ?? true;
     if (_isDark) {
       emit(BrightnessChange());
     } else {
