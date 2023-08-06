@@ -10,6 +10,7 @@ import '../styles.dart';
 
 AppBar? customAppBar(
     BuildContext ctx, List<Widget> list, TabController tabController) {
+  bool isDark = BlocProvider.of<BrightnessCubit>(ctx, listen: true).isDark;
   return BlocProvider.of<PageIndexCubit>(ctx).currentPageIndex == 0
       ? AppBar(
           systemOverlayStyle: SystemUiOverlayStyle.light
@@ -18,10 +19,8 @@ AppBar? customAppBar(
           elevation: 0,
           title: Text(
             'MoviesDb',
-            style: Styles.textStyleBold20.copyWith(
-                color: BlocProvider.of<BrightnessCubit>(ctx).isDark
-                    ? Colors.white
-                    : Colors.black),
+            style: Styles.textStyleBold20
+                .copyWith(color: isDark ? Colors.white : Colors.black),
           ),
           leading: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -38,9 +37,7 @@ AppBar? customAppBar(
           ),
           bottom: TabBar(
             padding: const EdgeInsets.symmetric(vertical: 2),
-            unselectedLabelColor: BlocProvider.of<BrightnessCubit>(ctx).isDark
-                ? Colors.white
-                : Colors.black,
+            unselectedLabelColor: isDark ? Colors.white : Colors.black,
             indicatorColor: kActiveIcon,
             labelStyle:
                 Styles.textStyleBold18.copyWith(fontWeight: FontWeight.w500),

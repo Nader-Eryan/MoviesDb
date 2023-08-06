@@ -5,26 +5,19 @@ import 'package:whats_for_tonight/core/utils/constants.dart';
 import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
 
 ThemeData customAppTheme(BuildContext context) {
+  final isDark = BlocProvider.of<BrightnessCubit>(context, listen: true).isDark;
   return ThemeData(
     tabBarTheme: TabBarTheme(
-      unselectedLabelColor: BlocProvider.of<BrightnessCubit>(context).isDark
-          ? kPrimaryLightTheme
-          : kPrimaryDarkTheme,
+      unselectedLabelColor: isDark ? kPrimaryLightTheme : kPrimaryDarkTheme,
       labelColor: kActiveIcon,
     ),
-    brightness: BlocProvider.of<BrightnessCubit>(context, listen: true).isDark
-        ? Brightness.dark
-        : Brightness.light,
+    brightness: isDark ? Brightness.dark : Brightness.light,
     fontFamily: 'Montserrat',
     primaryColorDark: kPrimaryDarkTheme,
     primaryColorLight: kPrimaryLightTheme,
-    scaffoldBackgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
-        ? kPrimaryDarkTheme
-        : kPrimaryLightTheme,
+    scaffoldBackgroundColor: isDark ? kPrimaryDarkTheme : kPrimaryLightTheme,
     appBarTheme: AppBarTheme(
-        backgroundColor: BlocProvider.of<BrightnessCubit>(context).isDark
-            ? kPrimaryDarkTheme
-            : kPrimaryLightTheme,
+        backgroundColor: isDark ? kPrimaryDarkTheme : kPrimaryLightTheme,
         elevation: 0),
     primarySwatch: Colors.amber,
   );

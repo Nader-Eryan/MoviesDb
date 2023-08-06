@@ -45,6 +45,7 @@ dependencies:
   flutter_svg: ^1.1.6
   shimmer: ^3.0.0
   font_awesome_flutter: ^10.4.0
+  shared_preferences: ^2.2.0
 
 dev_dependencies:
   flutter_test:
