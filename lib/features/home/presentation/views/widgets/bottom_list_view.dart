@@ -41,13 +41,21 @@ class BottomListView extends StatelessWidget {
                       const SizedBox(
                         height: 4,
                       ),
-                      const SizedBox(
-                        width: 140,
-                        height: 20,
-                        child: Text(
-                          'Movie title Movie app',
-                          style: Styles.textStyleBold16,
-                          overflow: TextOverflow.ellipsis,
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.grey.shade300,
+                            borderRadius: const BorderRadius.only(
+                                bottomLeft: Radius.circular(8),
+                                bottomRight: Radius.circular(8))),
+                        child: SizedBox(
+                          width: 140.w,
+                          height: 25.h,
+                          child: Text(
+                            'Movie title Movie app',
+                            style: Styles.textStyleBold16
+                                .copyWith(color: Colors.black),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
                       ),
                     ],
@@ -57,11 +65,6 @@ class BottomListView extends StatelessWidget {
             }),
           ),
         ),
-        // const SizedBox(
-        //   width: 140,
-        //   child:
-        //     child:
-        // ),
       ],
     );
   }
