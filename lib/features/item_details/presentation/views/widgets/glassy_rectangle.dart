@@ -22,7 +22,7 @@ class GlassyRectangle extends StatelessWidget {
           child: Center(
             child: Text(
               word,
-              style: Styles.textStyleBold14,
+              style: Styles.textStyleBold14.copyWith(color: Colors.white),
             ),
           ),
         ),
