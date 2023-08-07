@@ -62,14 +62,6 @@ class ItemDetailsBody extends StatelessWidget {
                           child: const Center(child: Text('HD')),
                         ),
                         const Spacer(),
-                        // const GlassyRectangle(word: 'Action'),
-                        // const SizedBox(
-                        //   width: 15,
-                        // ),
-                        // const GlassyRectangle(word: 'Crime'),
-                        // const SizedBox(
-                        //   width: 15,
-                        // ),
                         SizedBox(
                           width: 200.w,
                           height: 50.h,
