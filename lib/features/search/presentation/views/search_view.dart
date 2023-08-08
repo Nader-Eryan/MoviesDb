@@ -9,36 +9,38 @@ class SearchView extends StatelessWidget {
   const SearchView({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: 80.h,
-        ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: TextField(
-            decoration: InputDecoration(
-                hintText: 'Search',
-                hintStyle: TextStyle(color: Colors.grey.shade500),
-                prefixIcon: const Icon(
-                  FontAwesomeIcons.magnifyingGlass,
-                  color: kActiveIcon,
-                ),
-                iconColor: kActiveIcon,
-                filled: true,
-                focusColor: Colors.amberAccent,
-                enabledBorder: searchFieldBorder(),
-                focusedBorder: searchFieldBorder()),
+    return SafeArea(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20.h,
           ),
-        ),
-        Expanded(
-          child: MediaQuery.removePadding(
-            context: context,
-            removeTop: true,
-            child: const SeparatedList(),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: 'Search',
+                  hintStyle: TextStyle(color: Colors.grey.shade500),
+                  prefixIcon: const Icon(
+                    FontAwesomeIcons.magnifyingGlass,
+                    color: kActiveIcon,
+                  ),
+                  iconColor: kActiveIcon,
+                  filled: true,
+                  focusColor: Colors.amberAccent,
+                  enabledBorder: searchFieldBorder(),
+                  focusedBorder: searchFieldBorder()),
+            ),
           ),
-        ),
-      ],
+          Expanded(
+            child: MediaQuery.removePadding(
+              context: context,
+              removeTop: true,
+              child: const SeparatedList(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
