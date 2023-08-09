@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/core/widgets/back_arrow_icon.dart';
 
 /// Widget to capture and crop the image
 class ImageCapture extends StatefulWidget {
-  ImageCapture({Key? key}) : super(key: key);
+  const ImageCapture({Key? key}) : super(key: key);
   @override
   createState() => _ImageCaptureState();
 }
@@ -43,64 +44,75 @@ class _ImageCaptureState extends State<ImageCapture> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // Select an image from the camera or gallery
-      bottomNavigationBar: BottomAppBar(
-        child: SizedBox(
-          height: 100.h,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.photo_camera),
-                iconSize: 38,
-                onPressed: () => _pickImage(ImageSource.camera),
-              ),
-              IconButton(
-                icon: const Icon(Icons.photo_library),
-                iconSize: 38,
-                onPressed: () => _pickImage(ImageSource.gallery),
-              ),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 100.h,
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 4.0),
+            child: BackArrowIcon(onPressed: () {
+              Navigator.pop(context);
+            }),
           ),
         ),
-      ),
-
-      // Preview the image and crop it
-      body: ListView(
-        children: <Widget>[
-          if (_imageFile != null) ...[
-            Image.file(File(_imageFile!.path)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+        // Select an image from the camera or gallery
+        bottomNavigationBar: BottomAppBar(
+          child: SizedBox(
+            height: 100.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
-                TextButton(
-                  onPressed: _cropImage,
-                  child: const Icon(
-                    Icons.crop,
-                    size: 30,
-                  ),
+                IconButton(
+                  icon: const Icon(Icons.photo_camera),
+                  iconSize: 38,
+                  onPressed: () => _pickImage(ImageSource.camera),
                 ),
-                TextButton(
-                  onPressed: _clear,
-                  child: const Icon(
-                    Icons.refresh,
-                    size: 30,
-                  ),
-                ),
-                TextButton(
-                  child: const Icon(
-                    Icons.done,
-                    size: 30,
-                  ),
-                  onPressed: () {}, //_saveImage
+                IconButton(
+                  icon: const Icon(Icons.photo_library),
+                  iconSize: 38,
+                  onPressed: () => _pickImage(ImageSource.gallery),
                 ),
               ],
             ),
+          ),
+        ),
 
-            //  Uploader(file: _imageFile)
-          ]
-        ],
+        // Preview the image and crop it
+        body: ListView(
+          children: <Widget>[
+            if (_imageFile != null) ...[
+              Image.file(File(_imageFile!.path)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: _cropImage,
+                    child: const Icon(
+                      Icons.crop,
+                      size: 30,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: _clear,
+                    child: const Icon(
+                      Icons.refresh,
+                      size: 30,
+                    ),
+                  ),
+                  TextButton(
+                    child: const Icon(
+                      Icons.done,
+                      size: 30,
+                    ),
+                    onPressed: () {}, //_saveImage
+                  ),
+                ],
+              ),
+
+              //  Uploader(file: _imageFile)
+            ]
+          ],
+        ),
       ),
     );
   }
