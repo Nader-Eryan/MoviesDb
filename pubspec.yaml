@@ -48,6 +48,7 @@ dependencies:
   shared_preferences: ^2.2.0
   image_picker: ^1.0.2
   image_cropper: ^4.0.1
+  package_info_plus: ^4.1.0
 
 dev_dependencies:
   flutter_test:
