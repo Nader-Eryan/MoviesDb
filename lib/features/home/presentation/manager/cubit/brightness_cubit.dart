@@ -18,8 +18,16 @@ class BrightnessCubit extends Cubit<BrightnessState> {
   }
 
   BrightnessCubit() : super(BrightnessInitial());
-  void switchBrightnessMode() async {
-    _isDark = !_isDark;
+  void switchBrightnessMode(String? val) async {
+    if (val == null) {
+      _isDark = !_isDark;
+    } else {
+      if (val == 'light') {
+        _isDark = false;
+      } else {
+        _isDark = true;
+      }
+    }
     final SharedPreferences prefs = await _prefs;
     prefs.setBool('isDark', isDark);
     if (isDark) {
