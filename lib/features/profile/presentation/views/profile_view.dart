@@ -5,6 +5,7 @@ import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/about_view.dart';
+import 'package:whats_for_tonight/features/profile/presentation/views/account_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -28,7 +29,12 @@ class ProfileView extends StatelessWidget {
                 physics: const NeverScrollableScrollPhysics(),
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AccountView()));
+                    },
                     child: const ListTile(
                       title: Text(
                         'Account',
@@ -50,6 +56,7 @@ class ProfileView extends StatelessWidget {
                         BlocBuilder<BrightnessCubit, BrightnessState>(
                           builder: (context, state) {
                             return DropdownButton(
+                                iconSize: 40,
                                 iconEnabledColor: kActiveIcon,
                                 items: const [
                                   DropdownMenuItem(

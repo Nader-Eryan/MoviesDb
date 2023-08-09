@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar.dart';
 import 'package:whats_for_tonight/core/utils/functions/image_cropper.dart';
-import 'package:whats_for_tonight/core/widgets/back_arrow_icon.dart';
 
 import '../../../../../core/utils/functions/image_picker.dart';
 
@@ -29,18 +29,7 @@ class _ImageCaptureState extends State<ImageCapture> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              BackArrowIcon(onPressed: () {
-                Navigator.pop(context);
-              }),
-            ],
-          ),
-          toolbarHeight: 100.h,
-        ),
+        appBar: customArrowBackAppBar(context),
         // Select an image from the camera or gallery
         bottomNavigationBar: BottomAppBar(
           child: SizedBox(
