@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/core/utils/functions/image_cropper.dart';
 import 'package:whats_for_tonight/core/widgets/back_arrow_icon.dart';
+
+import '../../../../../core/utils/functions/image_picker.dart';
 
 /// Widget to capture and crop the image
 class ImageCapture extends StatefulWidget {
@@ -16,26 +19,6 @@ class ImageCapture extends StatefulWidget {
 class _ImageCaptureState extends State<ImageCapture> {
   /// Active image file
   XFile? _imageFile;
-
-  /// Cropper plugin
-  Future<void> _cropImage({CropStyle cropStyle = CropStyle.rectangle}) async {
-    CroppedFile? croppedImage = await ImageCropper()
-        .cropImage(cropStyle: cropStyle, sourcePath: _imageFile!.path);
-    if (croppedImage != null) {
-      setState(() {
-        _imageFile = XFile(croppedImage.path);
-      });
-    }
-  }
-
-  /// Select an image via gallery or camera
-  Future<void> _pickImage(ImageSource source) async {
-    XFile? selected = await ImagePicker().pickImage(source: source);
-
-    setState(() {
-      _imageFile = selected;
-    });
-  }
 
   /// Remove image
   void _clear() {
@@ -65,12 +48,22 @@ class _ImageCaptureState extends State<ImageCapture> {
                 IconButton(
                   icon: const Icon(Icons.photo_camera),
                   iconSize: 38,
-                  onPressed: () => _pickImage(ImageSource.camera),
+                  onPressed: () async {
+                    XFile? selected = await pickImage(ImageSource.camera);
+                    setState(() {
+                      _imageFile = selected;
+                    });
+                  },
                 ),
                 IconButton(
                   icon: const Icon(Icons.photo_library),
                   iconSize: 38,
-                  onPressed: () => _pickImage(ImageSource.gallery),
+                  onPressed: () async {
+                    XFile? selected = await pickImage(ImageSource.gallery);
+                    setState(() {
+                      _imageFile = selected;
+                    });
+                  },
                 ),
               ],
             ),
@@ -86,7 +79,14 @@ class _ImageCaptureState extends State<ImageCapture> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
                   TextButton(
-                    onPressed: _cropImage,
+                    onPressed: (() async {
+                      CroppedFile? croppedImage = await cropImage(_imageFile);
+                      if (croppedImage != null) {
+                        setState(() {
+                          _imageFile = XFile(croppedImage.path);
+                        });
+                      }
+                    }),
                     child: const Icon(
                       Icons.crop,
                       size: 30,
