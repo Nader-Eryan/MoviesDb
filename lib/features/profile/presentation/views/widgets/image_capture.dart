@@ -30,13 +30,16 @@ class _ImageCaptureState extends State<ImageCapture> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 100.h,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 4.0),
-            child: BackArrowIcon(onPressed: () {
-              Navigator.pop(context);
-            }),
+          automaticallyImplyLeading: false,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              BackArrowIcon(onPressed: () {
+                Navigator.pop(context);
+              }),
+            ],
           ),
+          toolbarHeight: 100.h,
         ),
         // Select an image from the camera or gallery
         bottomNavigationBar: BottomAppBar(
