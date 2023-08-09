@@ -69,7 +69,6 @@ class _ImageCaptureState extends State<ImageCapture> {
             ),
           ),
         ),
-
         // Preview the image and crop it
         body: ListView(
           children: <Widget>[
@@ -108,7 +107,6 @@ class _ImageCaptureState extends State<ImageCapture> {
                   ),
                 ],
               ),
-
               //  Uploader(file: _imageFile)
             ]
           ],
