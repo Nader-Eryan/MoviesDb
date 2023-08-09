@@ -18,8 +18,8 @@ class ProfilePic extends StatelessWidget {
             ),
           );
         } else {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => ImageCapture()));
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const ImageCapture()));
         }
       },
       child: const CircleAvatar(
