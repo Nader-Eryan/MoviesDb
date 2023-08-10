@@ -28,7 +28,7 @@ class HomeViewBody extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: SizedBox(
-            height: 350.h,
+            height: 340.h,
             child: TabBarView(
               controller: tabController,
               children: const [
