@@ -18,21 +18,11 @@ AppBar? customAppBar(
               .copyWith(statusBarColor: kPrimaryDarkTheme),
           toolbarHeight: 90.h,
           elevation: 0,
-          title: Text(
-            'MoviesDb',
-            style: Styles.textStyleBold20
-                .copyWith(color: isDark ? Colors.white : Colors.black),
-          ),
-          leading: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          title: Row(
             children: [
-              const SizedBox(
-                width: 2,
-              ),
               ClipRRect(
-                borderRadius: BorderRadius.circular(40.0),
-                child: Image.asset('assets/images/logo.jpg',
-                    height: 50.0, width: 50.0, fit: BoxFit.contain),
+                child: Image.asset('assets/images/logo.png',
+                    width: 120.0.w, fit: BoxFit.contain),
               ),
             ],
           ),
@@ -47,11 +37,10 @@ AppBar? customAppBar(
             controller: tabController,
             tabs: list,
           ),
-          centerTitle: true,
           actions: const [
             ProfilePic(),
             SizedBox(
-              width: 12,
+              width: 16,
             )
           ],
         )
