@@ -6,6 +6,7 @@ import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/about_view.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/account_view.dart';
+import 'package:whats_for_tonight/features/profile/presentation/views/bookmarks_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -81,6 +82,23 @@ class ProfileView extends StatelessWidget {
                           },
                         ),
                       ],
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 2,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BookmarksView()));
+                    },
+                    child: const ListTile(
+                      title: Text(
+                        'Bookmarks',
+                        style: Styles.textStyleBold18,
+                      ),
                     ),
                   ),
                   const Divider(
