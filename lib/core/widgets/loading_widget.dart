@@ -13,9 +13,10 @@ class CustomLoadingWidget extends StatelessWidget {
       enabled: true,
       child: Center(
         child: SizedBox(
-          width: width ?? 200.w,
+          width: double.infinity,
+          height: double.infinity,
           child: AspectRatio(
-            aspectRatio: 2.3 / 3,
+            aspectRatio: 2.4 / 3,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: Container(
