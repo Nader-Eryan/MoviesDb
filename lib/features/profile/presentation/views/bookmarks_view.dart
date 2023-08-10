@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:whats_for_tonight/core/widgets/separated_list.dart';
 
 class BookmarksView extends StatelessWidget {
@@ -8,7 +6,7 @@ class BookmarksView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
         body: SeparatedList(),
       ),
