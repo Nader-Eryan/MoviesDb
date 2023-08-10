@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 import 'package:whats_for_tonight/features/favorites/presentation/views/favorites_view.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 import 'package:whats_for_tonight/features/search/presentation/views/search_view.dart';
 
 import '../../../../core/utils/functions/custom_app_bar.dart';
@@ -31,7 +30,6 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<BrightnessCubit>(context).sharedPrefsInit();
     _tabController = TabController(length: 5, vsync: this);
     bottomScrollController = ScrollController();
   }
