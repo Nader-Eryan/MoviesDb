@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:size_config/size_config.dart';
 
 class CustomLoadingWidget extends StatelessWidget {
   const CustomLoadingWidget({super.key, this.width});
