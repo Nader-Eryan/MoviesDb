@@ -18,7 +18,11 @@ class AccountView extends StatefulWidget {
 
 class _AccountViewState extends State<AccountView> {
   final _formKey = GlobalKey<FormBuilderState>();
-  bool isObscure = true;
+  bool isObscure = true, isLogin = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -28,10 +32,10 @@ class _AccountViewState extends State<AccountView> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: SizedBox(
-              height: 700.h,
+          child: SizedBox(
+            height: 700.h,
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   const SizedBox(
@@ -39,12 +43,14 @@ class _AccountViewState extends State<AccountView> {
                   ),
                   FormBuilderTextField(
                     name: 'email',
+                    controller: _emailController,
                     decoration: InputDecoration(
                         fillColor: Colors.grey.withOpacity(0.2),
                         filled: true,
                         prefixIcon: const Icon(FontAwesomeIcons.envelope),
                         focusedBorder: focusBorder(),
                         enabledBorder: enabledBorder(context),
+                        errorBorder: enabledBorder(context),
                         labelText: 'Email'),
                     validator: FormBuilderValidators.compose([
                       FormBuilderValidators.required(),
@@ -54,6 +60,7 @@ class _AccountViewState extends State<AccountView> {
                   const SizedBox(height: 16),
                   FormBuilderTextField(
                     name: 'password',
+                    controller: _passwordController,
                     decoration: InputDecoration(
                       fillColor: Colors.grey.withOpacity(0.2),
                       filled: true,
@@ -63,6 +70,7 @@ class _AccountViewState extends State<AccountView> {
                       ),
                       focusedBorder: focusBorder(),
                       enabledBorder: enabledBorder(context),
+                      errorBorder: enabledBorder(context),
                       labelText: 'Password',
                       suffixIcon: IconButton(
                         onPressed: () {
@@ -81,21 +89,49 @@ class _AccountViewState extends State<AccountView> {
                       FormBuilderValidators.minLength(8),
                     ]),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Forgot password?',
-                          style: Styles.textStyleMedium16
-                              .copyWith(color: Colors.amber.shade600),
+                  isLogin
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Forgot password?',
+                                style: Styles.textStyleMedium16
+                                    .copyWith(color: Colors.amber.shade600),
+                              ),
+                            )
+                          ],
+                        )
+                      : Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: FormBuilderTextField(
+                            controller: _confirmPasswordController,
+                            name: 'confirm password',
+                            decoration: InputDecoration(
+                              fillColor: Colors.grey.withOpacity(0.2),
+                              filled: true,
+                              prefixIcon: const Icon(
+                                Icons.lock_outlined,
+                                size: 32,
+                              ),
+                              focusedBorder: focusBorder(),
+                              enabledBorder: enabledBorder(context),
+                              errorBorder: enabledBorder(context),
+                              labelText: 'Confirm password',
+                            ),
+                            obscureText: isObscure,
+                            validator: FormBuilderValidators.compose([
+                              FormBuilderValidators.required(),
+                              FormBuilderValidators.equal(
+                                  _passwordController.text,
+                                  errorText:
+                                      'This value must be equal to the password'),
+                            ]),
+                          ),
                         ),
-                      )
-                    ],
-                  ),
-                  const Spacer(
-                    flex: 2,
+                  SizedBox(
+                    height: isLogin ? 60 : 20,
                   ),
                   Row(
                     children: [
@@ -103,13 +139,13 @@ class _AccountViewState extends State<AccountView> {
                         child: customButton(
                           _formKey,
                           Colors.amber,
-                          'Sign In',
+                          isLogin ? 'Sign In' : 'Register',
                           () {
                             // Validate and save the form values
                             _formKey.currentState?.save();
                             print(_formKey.currentState?.validate().toString());
                             // On another side, can access all field values without saving form with instantValues
-                            print(_formKey.currentState?.validate().toString());
+                            //print(_formKey.currentState?.validate().toString());
                           },
                         ),
                       ),
@@ -139,8 +175,8 @@ class _AccountViewState extends State<AccountView> {
                       ),
                     ],
                   ),
-                  const Spacer(
-                    flex: 1,
+                  const SizedBox(
+                    height: 40,
                   ),
                   Row(
                     children: [
@@ -170,9 +206,15 @@ class _AccountViewState extends State<AccountView> {
                     ],
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        isLogin = !isLogin;
+                      });
+                    },
                     child: Text(
-                      'Don\'t have an account?',
+                      isLogin
+                          ? 'Don\'t have an account?'
+                          : 'Already have an account?',
                       style: Styles.textStyleMedium16
                           .copyWith(color: Colors.amber.shade600),
                     ),
