@@ -7,6 +7,8 @@ import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart'
 ThemeData customAppTheme(BuildContext context) {
   final isDark = BlocProvider.of<BrightnessCubit>(context, listen: true).isDark;
   return ThemeData(
+    navigationBarTheme: NavigationBarThemeData(
+        indicatorColor: Colors.yellowAccent.withOpacity(0.2)),
     tabBarTheme: TabBarTheme(
       unselectedLabelColor: isDark ? kPrimaryLightTheme : kPrimaryDarkTheme,
       labelColor: kActiveIcon,
