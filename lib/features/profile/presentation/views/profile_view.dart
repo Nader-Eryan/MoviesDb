@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
 import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/about_view.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/account_view.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/bookmarks_view.dart';
+
+import '../../../../core/manager/brightness_cubit/brightness_cubit.dart';
+import '../../../../generated/l10n.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -36,9 +39,9 @@ class ProfileView extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const AccountView()));
                     },
-                    child: const ListTile(
+                    child: ListTile(
                       title: Text(
-                        'Account',
+                        S.of(context).Account,
                         style: Styles.textStyleBold18,
                       ),
                     ),
@@ -50,8 +53,8 @@ class ProfileView extends StatelessWidget {
                     title: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          'App Theme',
+                        Text(
+                          S.of(context).AppTheme,
                           style: Styles.textStyleBold18,
                         ),
                         BlocBuilder<BrightnessCubit, BrightnessState>(
@@ -59,18 +62,18 @@ class ProfileView extends StatelessWidget {
                             return DropdownButton(
                                 iconSize: 40,
                                 iconEnabledColor: kActiveIcon,
-                                items: const [
+                                items: [
                                   DropdownMenuItem(
                                     value: 'light',
                                     child: Text(
-                                      'Light',
+                                      S.of(context).Light,
                                       style: Styles.textStyleBold16,
                                     ),
                                   ),
                                   DropdownMenuItem(
                                     value: 'dark',
                                     child: Text(
-                                      'Dark',
+                                      S.of(context).Dark,
                                       style: Styles.textStyleBold16,
                                     ),
                                   ),
@@ -87,6 +90,47 @@ class ProfileView extends StatelessWidget {
                   const Divider(
                     thickness: 2,
                   ),
+                  ListTile(
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          S.of(context).Language,
+                          style: Styles.textStyleBold18,
+                        ),
+                        BlocBuilder<LanguageCubit, LanguageState>(
+                          builder: (context, state) {
+                            return DropdownButton(
+                                iconSize: 40,
+                                iconEnabledColor: kActiveIcon,
+                                items: const [
+                                  DropdownMenuItem(
+                                    value: 'en',
+                                    child: Text(
+                                      'English',
+                                      style: Styles.textStyleBold16,
+                                    ),
+                                  ),
+                                  DropdownMenuItem(
+                                    value: 'ar',
+                                    child: Text(
+                                      'عربى',
+                                      style: Styles.textStyleBold16,
+                                    ),
+                                  ),
+                                ],
+                                onChanged: (val) {
+                                  BlocProvider.of<LanguageCubit>(context)
+                                      .switchLanguage(val);
+                                });
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  const Divider(
+                    thickness: 2,
+                  ),
                   InkWell(
                     onTap: () {
                       Navigator.push(
@@ -94,9 +138,9 @@ class ProfileView extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const BookmarksView()));
                     },
-                    child: const ListTile(
+                    child: ListTile(
                       title: Text(
-                        'Bookmarks',
+                        S.of(context).Bookmarks,
                         style: Styles.textStyleBold18,
                       ),
                     ),
@@ -111,9 +155,9 @@ class ProfileView extends StatelessWidget {
                           MaterialPageRoute(
                               builder: (context) => const AboutView()));
                     },
-                    child: const ListTile(
+                    child: ListTile(
                       title: Text(
-                        'About',
+                        S.of(context).Abount,
                         style: Styles.textStyleBold18,
                       ),
                     ),

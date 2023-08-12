@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
 import '../../../../../core/utils/styles.dart';
+import '../../../../../generated/l10n.dart';
 
 class TextRowHomeView extends StatelessWidget {
   const TextRowHomeView({super.key, required this.bottomScrollController});
@@ -10,8 +11,8 @@ class TextRowHomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(
-          'We recommend',
+        Text(
+          S.of(context).WeRecommend,
           style: Styles.textStyleBold18,
         ),
         const Spacer(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
+
+import '../manager/brightness_cubit/brightness_cubit.dart';
 
 class BackArrowIcon extends StatelessWidget {
   const BackArrowIcon({super.key, required this.onPressed});

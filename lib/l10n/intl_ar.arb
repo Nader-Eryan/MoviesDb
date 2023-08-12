@@ -1,0 +1,35 @@
+{
+    "Account":"الحساب الشخصى",
+    "AppTheme":"المظهر",
+    "Bookmarks":"علامات القراءة",
+    "Abount":"عن التطبيق",
+
+    "Light" : "مضئ",
+    "Dark" : "داكن",
+    "ForgotPassword" : "هل نسيت كلمة المرور؟",
+    "Email" : "البريد الإلكتروني",
+    "Password" : "كلمة المرور",
+    "SignIn" : "تسجيل الدخول",
+    "OrUseSocialMedial" : "أو استخدم وسائل التواصل الاجتماعي",
+    "SignInWithGoogle" : "تسجيل الدخول باستخدام Google",
+    "SignInWithApple" : "تسجيل الدخول باستخدام Apple",
+    "DontHaveAnAccount" : "ليس لديك حساب؟",
+    "ConfirmPasword" : "تأكيد كلمة المرور",
+    "AlreadyHaveAnAccount" : "هل لديك حساب بالفعل؟",
+    "TheFieldCannotBeEmpty" : "لا يمكن ترك الحقل فارغًا",
+    "ValueMustHaveALengthGreaterThanOrEqualTo8" : "يجب أن يكون طول القيمة أكبر من أو يساوي 8",
+    "TheValueMustBeEqualToThePassword" : "يجب أن تكون القيمة مطابقة لكلمة المرور",
+    "TheFieldRequiresAValidEmailAddress" : "يتطلب الحقل عنوان بريد إلكتروني صالح",
+    "Register":"تسجيل",
+    "Language":"اللغة",
+
+    "Version" : "النسخة الحالية",
+    "Feedback" : "ملاحظات",
+    "EmailUs" : "راسلنا عبر البريد الإلكتروني",
+    "Search" : "بحث",
+    "WeRecommend" : "نوصي ب",
+    "Profile" : "الملف الشخصي",
+    "Favorites" : "المفضلات",
+    "Home" : "الصفحة الرئيسية"
+
+}

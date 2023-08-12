@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
 
+import '../../../../../core/manager/brightness_cubit/brightness_cubit.dart';
 import '../../../../../core/utils/constants.dart';
 
 OutlineInputBorder enabledBorder(BuildContext context) {

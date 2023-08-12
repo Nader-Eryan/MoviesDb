@@ -5,7 +5,7 @@ import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 
-import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
+import '../../manager/brightness_cubit/brightness_cubit.dart';
 import '../constants.dart';
 import '../styles.dart';
 

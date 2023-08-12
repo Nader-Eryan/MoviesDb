@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whats_for_tonight/core/utils/constants.dart';
 
-import '../../../features/home/presentation/manager/cubit/brightness_cubit.dart';
+import '../../manager/brightness_cubit/brightness_cubit.dart';
 
 ThemeData customAppTheme(BuildContext context) {
   final isDark = BlocProvider.of<BrightnessCubit>(context, listen: true).isDark;

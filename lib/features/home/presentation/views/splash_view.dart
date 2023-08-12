@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
+import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/home_view.dart';
 
+import '../../../../core/manager/brightness_cubit/brightness_cubit.dart';
 import '../../../custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 
 class SplashView extends StatefulWidget {
@@ -20,7 +21,8 @@ class _SplashViewState extends State<SplashView> {
   late Timer timer;
   @override
   void initState() {
-    BlocProvider.of<BrightnessCubit>(context).sharedPrefsInit();
+    BlocProvider.of<BrightnessCubit>(context).sharedPrefsBrightnessInit();
+    BlocProvider.of<LanguageCubit>(context).sharedPrefsLanguageInit();
 
     padding = 0;
     timer = Timer.periodic(const Duration(milliseconds: 400), (timer) {

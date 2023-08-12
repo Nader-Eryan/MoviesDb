@@ -4,6 +4,7 @@ import 'package:whats_for_tonight/core/utils/functions/get_version.dart';
 import '../../../../core/utils/functions/custom_arrow_back_app_bar.dart';
 import '../../../../core/utils/functions/launch_mail.dart';
 import '../../../../core/utils/styles.dart';
+import '../../../../generated/l10n.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -25,8 +26,8 @@ class AboutView extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Version',
+                    Text(
+                      S.of(context).Version,
                       style: Styles.textStyleBold18,
                     ),
                     FutureBuilder(
@@ -49,8 +50,8 @@ class AboutView extends StatelessWidget {
                 title: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'Feedback',
+                    Text(
+                      S.of(context).Feedback,
                       style: Styles.textStyleBold18,
                     ),
                     ElevatedButton(
@@ -58,8 +59,8 @@ class AboutView extends StatelessWidget {
                           // To create email with params
                           launchMail();
                         },
-                        child: const Text(
-                          'Email us',
+                        child: Text(
+                          S.of(context).EmailUs,
                           style: Styles.textStyleBold16,
                         ))
                   ],

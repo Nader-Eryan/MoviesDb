@@ -7,6 +7,7 @@ import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/widgets/custom_button.dart';
 
+import '../../../../generated/l10n.dart';
 import 'widgets/account_text_field_border.dart';
 
 class AccountView extends StatefulWidget {
@@ -51,10 +52,13 @@ class _AccountViewState extends State<AccountView> {
                         focusedBorder: focusBorder(),
                         enabledBorder: enabledBorder(context),
                         errorBorder: enabledBorder(context),
-                        labelText: 'Email'),
+                        labelText: S.of(context).Email),
                     validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(),
-                      FormBuilderValidators.email(),
+                      FormBuilderValidators.required(
+                          errorText: S.of(context).TheFieldCannotBeEmpty),
+                      FormBuilderValidators.email(
+                          errorText:
+                              S.of(context).TheFieldRequiresAValidEmailAddress),
                     ]),
                   ),
                   const SizedBox(height: 16),
@@ -71,7 +75,7 @@ class _AccountViewState extends State<AccountView> {
                       focusedBorder: focusBorder(),
                       enabledBorder: enabledBorder(context),
                       errorBorder: enabledBorder(context),
-                      labelText: 'Password',
+                      labelText: S.of(context).Password,
                       suffixIcon: IconButton(
                         onPressed: () {
                           setState(() {
@@ -85,8 +89,12 @@ class _AccountViewState extends State<AccountView> {
                     ),
                     obscureText: isObscure,
                     validator: FormBuilderValidators.compose([
-                      FormBuilderValidators.required(),
-                      FormBuilderValidators.minLength(8),
+                      FormBuilderValidators.required(
+                          errorText: S.of(context).TheFieldCannotBeEmpty),
+                      FormBuilderValidators.minLength(8,
+                          errorText: S
+                              .of(context)
+                              .ValueMustHaveALengthGreaterThanOrEqualTo8),
                     ]),
                   ),
                   isLogin
@@ -96,7 +104,7 @@ class _AccountViewState extends State<AccountView> {
                             TextButton(
                               onPressed: () {},
                               child: Text(
-                                'Forgot password?',
+                                S.of(context).ForgotPassword,
                                 style: Styles.textStyleMedium16
                                     .copyWith(color: Colors.amber.shade600),
                               ),
@@ -118,15 +126,16 @@ class _AccountViewState extends State<AccountView> {
                               focusedBorder: focusBorder(),
                               enabledBorder: enabledBorder(context),
                               errorBorder: enabledBorder(context),
-                              labelText: 'Confirm password',
+                              labelText: S.of(context).ConfirmPasword,
                             ),
                             obscureText: isObscure,
                             validator: FormBuilderValidators.compose([
                               FormBuilderValidators.required(),
                               FormBuilderValidators.equal(
                                   _passwordController.text,
-                                  errorText:
-                                      'This value must be equal to the password'),
+                                  errorText: S
+                                      .of(context)
+                                      .TheValueMustBeEqualToThePassword),
                             ]),
                           ),
                         ),
@@ -139,7 +148,9 @@ class _AccountViewState extends State<AccountView> {
                         child: customButton(
                           _formKey,
                           Colors.amber,
-                          isLogin ? 'Sign In' : 'Register',
+                          isLogin
+                              ? S.of(context).SignIn
+                              : S.of(context).Register,
                           () {
                             // Validate and save the form values
                             _formKey.currentState?.save();
@@ -159,11 +170,11 @@ class _AccountViewState extends State<AccountView> {
                           color: Colors.grey.withOpacity(0.3),
                         ),
                       ),
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8.0, vertical: 18),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 8.0, vertical: 18),
                         child: Text(
-                          'Or use social media',
+                          S.of(context).OrUseSocialMedial,
                           style: Styles.textStyleMedium16,
                         ),
                       ),
@@ -184,7 +195,7 @@ class _AccountViewState extends State<AccountView> {
                         child: customButton(
                             _formKey,
                             Colors.grey.withOpacity(0.7),
-                            'Sign In with Google',
+                            S.of(context).SignInWithGoogle,
                             () {},
                             imgUrl: 'assets/images/google.png'),
                       ),
@@ -199,7 +210,7 @@ class _AccountViewState extends State<AccountView> {
                         child: customButton(
                             _formKey,
                             Colors.grey.withOpacity(0.7),
-                            'Sign In with Apple',
+                            S.of(context).SignInWithApple,
                             () {},
                             imgUrl: 'assets/images/apple.png'),
                       ),
@@ -213,8 +224,8 @@ class _AccountViewState extends State<AccountView> {
                     },
                     child: Text(
                       isLogin
-                          ? 'Don\'t have an account?'
-                          : 'Already have an account?',
+                          ? S.of(context).DontHaveAnAccount
+                          : S.of(context).AlreadyHaveAnAccount,
                       style: Styles.textStyleMedium16
                           .copyWith(color: Colors.amber.shade600),
                     ),

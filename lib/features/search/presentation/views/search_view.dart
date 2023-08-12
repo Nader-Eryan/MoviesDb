@@ -4,6 +4,7 @@ import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/constants.dart';
 
 import '../../../../core/widgets/separated_list.dart';
+import '../../../../generated/l10n.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({super.key});
@@ -19,7 +20,7 @@ class SearchView extends StatelessWidget {
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               decoration: InputDecoration(
-                  hintText: 'Search',
+                  hintText: S.of(context).Search,
                   hintStyle: TextStyle(color: Colors.grey.shade500),
                   prefixIcon: const Icon(
                     FontAwesomeIcons.magnifyingGlass,

@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
-import 'package:whats_for_tonight/features/home/presentation/manager/cubit/brightness_cubit.dart';
+
+import '../../../../../core/manager/brightness_cubit/brightness_cubit.dart';
+import '../../../../../generated/l10n.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
   const CustomBottomNavigation({super.key});
@@ -13,40 +15,40 @@ class CustomBottomNavigation extends StatelessWidget {
     return BlocBuilder<PageIndexCubit, PageIndexState>(
       builder: (context, state) {
         return NavigationBar(
-          destinations: const [
+          destinations: [
             NavigationDestination(
-                selectedIcon: Icon(
+                selectedIcon: const Icon(
                   Icons.home_outlined,
                   color: kActiveIcon,
                   size: 32,
                 ),
-                icon: Icon(
+                icon: const Icon(
                   Icons.home_outlined,
                   size: 32,
                 ),
-                label: 'Home'),
+                label: S.of(context).Home),
             NavigationDestination(
-              selectedIcon: Icon(
+              selectedIcon: const Icon(
                 FontAwesomeIcons.magnifyingGlass,
                 color: kActiveIcon,
               ),
-              icon: Icon(FontAwesomeIcons.magnifyingGlass),
-              label: 'Search',
+              icon: const Icon(FontAwesomeIcons.magnifyingGlass),
+              label: S.of(context).Search,
             ),
             NavigationDestination(
-                selectedIcon: Icon(
+                selectedIcon: const Icon(
                   FontAwesomeIcons.heart,
                   color: kActiveIcon,
                 ),
-                icon: Icon(FontAwesomeIcons.heart),
-                label: 'Favorites'),
+                icon: const Icon(FontAwesomeIcons.heart),
+                label: S.of(context).Favorites),
             NavigationDestination(
-                selectedIcon: Icon(
+                selectedIcon: const Icon(
                   FontAwesomeIcons.user,
                   color: kActiveIcon,
                 ),
-                icon: Icon(FontAwesomeIcons.user),
-                label: 'Profile'),
+                icon: const Icon(FontAwesomeIcons.user),
+                label: S.of(context).Profile),
           ],
           selectedIndex:
               BlocProvider.of<PageIndexCubit>(context).currentPageIndex,
