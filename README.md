@@ -1,4 +1,4 @@
-# whats_for_tonight
+# MoviesDb
 
 A new Flutter project.
 
