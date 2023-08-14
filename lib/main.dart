@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
+import 'package:whats_for_tonight/core/utils/bloc_observer.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/splash_view.dart';
 
 import 'core/manager/brightness_cubit/brightness_cubit.dart';
@@ -13,7 +14,12 @@ import 'generated/l10n.dart';
 void main() {
   serviceLocatorSetup();
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  BlocOverrides.runZoned(
+    () {
+      runApp(const MyApp());
+    },
+    blocObserver: SimpleBlocObserver(),
+  );
 }
 
 class MyApp extends StatelessWidget {
