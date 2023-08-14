@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
+import 'package:whats_for_tonight/core/utils/service_locator.dart';
+import 'package:whats_for_tonight/features/home/data/repos/home_repo_impl.dart';
+import 'package:whats_for_tonight/features/home/presentation/manager/genre_names_cubit/genre_names_cubit.dart';
+import 'package:whats_for_tonight/features/home/presentation/manager/genre_shows_cubit/genre_shows_cubit.dart';
+import 'package:whats_for_tonight/features/home/presentation/manager/suggestion_shows_cubit/suggestion_shows_cubit.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/home_view.dart';
 
 import '../../../../core/manager/brightness_cubit/brightness_cubit.dart';
@@ -31,8 +36,18 @@ class _SplashViewState extends State<SplashView> {
     });
     Future.delayed(const Duration(milliseconds: 1500), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => BlocProvider(
-              create: (context) => PageIndexCubit(), child: const HomeView())));
+          builder: (context) => MultiBlocProvider(providers: [
+                BlocProvider(create: (context) => PageIndexCubit()),
+                BlocProvider(
+                    create: (context) =>
+                        GenreNamesCubit(getIt.get<HomeRepoImpl>())),
+                BlocProvider(
+                    create: (context) =>
+                        GenreShowsCubit(getIt.get<HomeRepoImpl>())),
+                BlocProvider(
+                    create: (context) =>
+                        SuggestionShowsCubit(getIt.get<HomeRepoImpl>())),
+              ], child: const HomeView())));
     });
     super.initState();
   }

@@ -7,9 +7,12 @@ import 'package:whats_for_tonight/features/home/presentation/views/splash_view.d
 
 import 'core/manager/brightness_cubit/brightness_cubit.dart';
 import 'core/utils/functions/custom_app_theme.dart';
+import 'core/utils/service_locator.dart';
 import 'generated/l10n.dart';
 
 void main() {
+  serviceLocatorSetup();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
