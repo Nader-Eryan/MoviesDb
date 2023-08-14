@@ -155,6 +155,20 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.2.0"
+  dartz:
+    dependency: "direct main"
+    description:
+      name: dartz
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.10.1"
+  dio:
+    dependency: "direct main"
+    description:
+      name: dio
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "5.3.2"
   equatable:
     dependency: "direct main"
     description:
