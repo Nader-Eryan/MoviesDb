@@ -349,6 +349,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Please search for a valid show name!`
+  String get SearchForAValidShow {
+    return Intl.message(
+      'Please search for a valid show name!',
+      name: 'SearchForAValidShow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

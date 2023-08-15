@@ -1,42 +1,33 @@
 {
-    "Account":"Account",
-    "AppTheme":"App theme",
-    "Bookmarks":"Bookmarks",
-    "Abount":"About",
-
-    "Light":"Light",
-    "Dark":"Dark",
-    "ForgotPassword":"Forgot password?",
-    "Email":"Email",
-    "Password":"Password",
-    "SignIn":"Sign In",
-    "OrUseSocialMedial":"Or use social media",
-    "SignInWithGoogle":"Sign in with Google",
-    "SignInWithApple":"Sign in with Apple",
-    "DontHaveAnAccount":"Don't have an account?",
-    "ConfirmPasword":"Confirm password",
-    "AlreadyHaveAnAccount":"Already have an account?",
-    "TheFieldCannotBeEmpty":"The field cannot be empty",
-    "ValueMustHaveALengthGreaterThanOrEqualTo8":"Value must have a length greater than or equal to 8",
-    "TheValueMustBeEqualToThePassword":"The value must be equal to the password",
-    "TheFieldRequiresAValidEmailAddress":"The field requires a valid email address",
-    "Register":"Register",
-    "Language":"Language",
-
-    "Version":"Current version",
-    "Feedback":"Feedback",
-    "EmailUs":"Email us",
-    "Search":"Search",
-    "WeRecommend":"We Recommend",
-    "Profile":"Profile",
-    "Favorites":"Favorites",
-    "Home":"Home"
-
-
-
-
-
-
-
-
+    "Account": "Account",
+    "AppTheme": "App theme",
+    "Bookmarks": "Bookmarks",
+    "Abount": "About",
+    "Light": "Light",
+    "Dark": "Dark",
+    "ForgotPassword": "Forgot password?",
+    "Email": "Email",
+    "Password": "Password",
+    "SignIn": "Sign In",
+    "OrUseSocialMedial": "Or use social media",
+    "SignInWithGoogle": "Sign in with Google",
+    "SignInWithApple": "Sign in with Apple",
+    "DontHaveAnAccount": "Don't have an account?",
+    "ConfirmPasword": "Confirm password",
+    "AlreadyHaveAnAccount": "Already have an account?",
+    "TheFieldCannotBeEmpty": "The field cannot be empty",
+    "ValueMustHaveALengthGreaterThanOrEqualTo8": "Value must have a length greater than or equal to 8",
+    "TheValueMustBeEqualToThePassword": "The value must be equal to the password",
+    "TheFieldRequiresAValidEmailAddress": "The field requires a valid email address",
+    "Register": "Register",
+    "Language": "Language",
+    "Version": "Current version",
+    "Feedback": "Feedback",
+    "EmailUs": "Email us",
+    "Search": "Search",
+    "WeRecommend": "We Recommend",
+    "Profile": "Profile",
+    "Favorites": "Favorites",
+    "Home": "Home",
+    "SearchForAValidShow": "Please search for a valid show name!"
 }

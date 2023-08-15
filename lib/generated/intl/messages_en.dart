@@ -48,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Register": MessageLookupByLibrary.simpleMessage("Register"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
+        "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
+            "Please search for a valid show name!"),
         "SignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "SignInWithApple":
             MessageLookupByLibrary.simpleMessage("Sign in with Apple"),

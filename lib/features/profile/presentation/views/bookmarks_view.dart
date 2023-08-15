@@ -11,7 +11,8 @@ class BookmarksView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: customArrowBackAppBar(context),
-        body: const SeparatedList(),
+        body: const Placeholder(),
+        // body: const SeparatedList(),
       ),
     );
   }

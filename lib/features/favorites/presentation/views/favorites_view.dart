@@ -6,6 +6,7 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: SeparatedList());
+    return const SafeArea(child: Placeholder() //SeparatedList()
+        );
   }
 }

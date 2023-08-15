@@ -13,6 +13,20 @@ class ApiService {
     return respone.data;
   }
 
+  Future<Map<String, dynamic>> search(
+      {Map<String, dynamic>? qParams, required String showName}) async {
+    setHeaders();
+    var respone = await _dio.get('$_baseUrl/titles/search/title/$showName',
+        queryParameters: {'exact': 'Do not include in request', 'limit': 40});
+    return respone.data;
+  }
+
+  Future<Map<String, dynamic>> getDetails({required id}) async {
+    var respone =
+        await _dio.get('https://www.omdbapi.com/?apikey=eeb0cbc1&i=$id');
+    return respone.data;
+  }
+
   void setHeaders() {
     _dio.options.headers['X-RapidAPI-Key'] =
         '3cd3e5ad44msh3ef0964c11a79a7p10cb35jsn40763f18fa41';

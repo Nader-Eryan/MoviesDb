@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:whats_for_tonight/core/utils/api_service.dart';
+import 'package:whats_for_tonight/core/utils/service_locator.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 import 'package:whats_for_tonight/features/favorites/presentation/views/favorites_view.dart';
+import 'package:whats_for_tonight/features/search/data/repos/search_repo.dart';
+import 'package:whats_for_tonight/features/search/data/repos/search_repo_impl.dart';
+import 'package:whats_for_tonight/features/search/presentation/manager/cubit/search_cubit.dart';
 import 'package:whats_for_tonight/features/search/presentation/views/search_view.dart';
 
 import '../../../../core/utils/functions/custom_app_bar.dart';
@@ -58,7 +63,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   bottomScrollController: bottomScrollController,
                   genreNames: genreNames,
                 ),
-                const SearchView(),
+                BlocProvider(
+                  create: (context) => SearchCubit(
+                    searchRepo: getIt.get<SearchRepoImpl>(),
+                  ),
+                  child: const SearchView(),
+                ),
                 const FavoritesView(),
                 const ProfileView(),
               ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/core/widgets/list_item.dart';
 
+import '../../features/home/data/models/show/show.dart';
+import '../../features/item_details/presentation/views/item_details.dart';
 import '../utils/styles.dart';
 
 class SeparatedList extends StatelessWidget {
-  const SeparatedList({super.key});
-
+  const SeparatedList({super.key, required this.showList});
+  final List<Show> showList;
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -13,19 +16,25 @@ class SeparatedList extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            // Navigator.of(context).push(
-            //     MaterialPageRoute(builder: (context) =>  ItemDetails(showModel: ,)));
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => ItemDetails(
+                  showModel: showList[index],
+                ),
+              ),
+            );
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
             child: Row(children: [
-              // Padding(
-              //   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              //   child: ListItem(
-              //     width: 100,
-              //     borderRadius: BorderRadius.circular(8),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                child: ListItem(
+                  showModel: showList[index],
+                  width: 100,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: SizedBox(
@@ -35,20 +44,24 @@ class SeparatedList extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      const Text(
-                        'Don\'t Look Up',
+                      Text(
+                        showList[index].originalTitleText!.text!,
                         style: Styles.textStyleBold20,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 2,
                       ),
                       Text(
-                        '2021',
+                        showList[index].releaseYear == null
+                            ? ''
+                            : showList[index].releaseYear!.year!.toString(),
                         style:
                             Styles.textStyleBold16.copyWith(color: Colors.grey),
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
-                        'Leonardo DiCaprio, Jennifer Lawerence',
+                        showList[index].primaryImage == null
+                            ? ''
+                            : showList[index].primaryImage!.caption!.plainText!,
                         style: Styles.textStyleMedium16
                             .copyWith(color: Colors.grey),
                         overflow: TextOverflow.ellipsis,
@@ -61,7 +74,7 @@ class SeparatedList extends StatelessWidget {
           ),
         );
       },
-      itemCount: 10,
+      itemCount: showList.length,
       separatorBuilder: (BuildContext context, int index) => const Divider(
         thickness: 2,
       ),

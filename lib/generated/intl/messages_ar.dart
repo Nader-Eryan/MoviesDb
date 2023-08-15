@@ -49,6 +49,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "Register": MessageLookupByLibrary.simpleMessage("تسجيل"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
+        "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
+            "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!"),
         "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "SignInWithApple":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام Apple"),
