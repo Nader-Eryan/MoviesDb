@@ -40,13 +40,15 @@ class _SplashViewState extends State<SplashView> {
                 BlocProvider(create: (context) => PageIndexCubit()),
                 BlocProvider(
                     create: (context) =>
-                        GenreNamesCubit(getIt.get<HomeRepoImpl>())),
+                        GenreNamesCubit(getIt.get<HomeRepoImpl>())
+                          ..fetchGenreNames()),
                 BlocProvider(
                     create: (context) =>
                         GenreShowsCubit(getIt.get<HomeRepoImpl>())),
                 BlocProvider(
                     create: (context) =>
-                        SuggestionShowsCubit(getIt.get<HomeRepoImpl>())),
+                        SuggestionShowsCubit(getIt.get<HomeRepoImpl>())
+                          ..fetchSuggestionShows()),
               ], child: const HomeView())));
     });
     super.initState();
