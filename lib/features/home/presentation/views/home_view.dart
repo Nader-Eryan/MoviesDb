@@ -7,6 +7,7 @@ import 'package:whats_for_tonight/features/search/presentation/views/search_view
 import '../../../../core/utils/functions/custom_app_bar.dart';
 import '../../../custom_button_navigation.dart/presentation/views/widgets/custom_bottom_navigation.dart';
 import '../../../profile/presentation/views/profile_view.dart';
+import '../manager/genre_names_cubit/genre_names_cubit.dart';
 import 'widgets/home_view_body.dart';
 
 class HomeView extends StatefulWidget {
@@ -17,21 +18,15 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
-  late final TabController _tabController;
+  late TabController _tabController;
   late final ScrollController bottomScrollController;
+  List<String> genreNames = [];
   int currentPageIndex = 0;
-  List<Widget> list = [
-    const Text('Action'),
-    const Text('Drama'),
-    const Text('Horrer'),
-    const Text('Mystery'),
-    const Text('Thriller')
-  ];
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
     bottomScrollController = ScrollController();
+    _tabController = TabController(length: genreNames.length, vsync: this);
   }
 
   @override
@@ -45,18 +40,29 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return BlocBuilder<PageIndexCubit, PageIndexState>(
       builder: (context, state) {
-        return Scaffold(
-            bottomNavigationBar: const CustomBottomNavigation(),
-            appBar: customAppBar(context, list, _tabController),
-            body: [
-              HomeViewBody(
-                tabController: _tabController,
-                bottomScrollController: bottomScrollController,
-              ),
-              const SearchView(),
-              const FavoritesView(),
-              const ProfileView(),
-            ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]);
+        return BlocListener<GenreNamesCubit, GenreNamesState>(
+          listener: (context, state) {
+            if (state is GenreNamesSuccess) {
+              genreNames = BlocProvider.of<GenreNamesCubit>(context).genreNames;
+              _tabController =
+                  TabController(length: genreNames.length, vsync: this);
+              setState(() {});
+            }
+          },
+          child: Scaffold(
+              bottomNavigationBar: const CustomBottomNavigation(),
+              appBar: customAppBar(context, genreNames, _tabController),
+              body: [
+                HomeViewBody(
+                  tabController: _tabController,
+                  bottomScrollController: bottomScrollController,
+                  genreNames: genreNames,
+                ),
+                const SearchView(),
+                const FavoritesView(),
+                const ProfileView(),
+              ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]),
+        );
       },
     );
   }

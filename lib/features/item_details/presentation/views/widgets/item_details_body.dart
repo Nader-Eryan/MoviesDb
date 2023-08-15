@@ -1,18 +1,26 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
+
 import 'package:whats_for_tonight/core/utils/styles.dart';
+import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 import 'package:whats_for_tonight/features/item_details/presentation/views/widgets/stack_section.dart';
 
 class ItemDetailsBody extends StatelessWidget {
-  const ItemDetailsBody({super.key});
-
+  const ItemDetailsBody({
+    Key? key,
+    required this.showModel,
+  }) : super(key: key);
+  final Show showModel;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
           height: 500.h,
-          child: const StackSection(),
+          child: StackSection(
+            showModel: showModel,
+          ),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -52,14 +60,18 @@ class ItemDetailsBody extends StatelessWidget {
             ],
           ),
         ),
-        const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Text('Joker', style: Styles.textStyleBold28)),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: Text(showModel.originalTitleText!.text!,
+                style: Styles.textStyleBold28)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           child: Text(
-              'storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline storyline',
-              style: TextStyle(color: Colors.grey.shade600, height: 2)),
+              showModel.primaryImage == null
+                  ? 'There is not much infromation about this show'
+                  : showModel.primaryImage!.caption!.plainText!,
+              style: TextStyle(
+                  color: Colors.grey.shade500, height: 2, fontSize: 18)),
         ),
       ]),
     );

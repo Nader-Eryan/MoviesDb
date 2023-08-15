@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:dio/dio.dart';
 import 'package:whats_for_tonight/core/utils/api_service.dart';
@@ -9,13 +10,18 @@ import 'package:whats_for_tonight/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
-
+  int rand = Random().nextInt(49) + 1;
   HomeRepoImpl(this.apiService);
   @override
   Future<Either<Failure, List<Show>>> fetchGenreShows(String genre) async {
     try {
       var data = await apiService.get(
-        qParams: {'genre': genre},
+        qParams: {
+          'genre': genre,
+          'limit': 50,
+          'startYear': 2000,
+          'page': rand,
+        },
         endPoint: '/titles',
       );
       List<Show> shows = [];
@@ -58,7 +64,7 @@ class HomeRepoImpl implements HomeRepo {
       List<String> genreList = [];
       //print(data);
       for (var item in data['results']) {
-        if (json.encode(item) != 'null') {
+        if (json.encode(item) != 'null' && json.encode(item) != '"Adult"') {
           genreList.add(json.encode(item).replaceAll('"', ''));
         }
       }

@@ -1,5 +1,6 @@
 part of 'genre_shows_cubit.dart';
 
+@immutable
 abstract class GenreShowsState {}
 
 class GenreShowsInitial extends GenreShowsState {}

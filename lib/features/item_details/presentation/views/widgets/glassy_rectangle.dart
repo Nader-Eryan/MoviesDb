@@ -6,7 +6,7 @@ import 'package:whats_for_tonight/core/utils/styles.dart';
 
 class GlassyRectangle extends StatelessWidget {
   const GlassyRectangle({super.key, required this.word});
-  final String word;
+  final String? word;
   @override
   Widget build(BuildContext context) {
     return ClipRect(
@@ -21,8 +21,8 @@ class GlassyRectangle extends StatelessWidget {
           ),
           child: Center(
             child: Text(
-              word,
-              style: Styles.textStyleBold14.copyWith(color: Colors.white),
+              word ?? '',
+              style: Styles.textStyleBold16.copyWith(color: Colors.white),
             ),
           ),
         ),

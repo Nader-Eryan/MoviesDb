@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
-import '../../features/item_details/presentation/views/item_details.dart';
-import 'list_item.dart';
 import '../utils/styles.dart';
 
 class SeparatedList extends StatelessWidget {
@@ -15,19 +13,19 @@ class SeparatedList extends StatelessWidget {
       itemBuilder: (context, index) {
         return InkWell(
           onTap: () {
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const ItemDetails()));
+            // Navigator.of(context).push(
+            //     MaterialPageRoute(builder: (context) =>  ItemDetails(showModel: ,)));
           },
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
             child: Row(children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                child: ListItem(
-                  width: 100,
-                  borderRadius: BorderRadius.circular(8),
-                ),
-              ),
+              // Padding(
+              //   padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+              //   child: ListItem(
+              //     width: 100,
+              //     borderRadius: BorderRadius.circular(8),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.all(12),
                 child: SizedBox(
