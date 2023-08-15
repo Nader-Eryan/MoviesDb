@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 part 'brightness_state.dart';
 
 class BrightnessCubit extends Cubit<BrightnessState> {
+  BrightnessCubit() : super(BrightnessInitial());
   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   bool _isDark = true;
   bool get isDark => _isDark;
@@ -17,7 +18,6 @@ class BrightnessCubit extends Cubit<BrightnessState> {
     }
   }
 
-  BrightnessCubit() : super(BrightnessInitial());
   void switchBrightnessMode(String? val) async {
     if (val == null) {
       _isDark = !_isDark;
