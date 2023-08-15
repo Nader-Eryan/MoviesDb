@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 import 'package:whats_for_tonight/core/utils/api_service.dart';
 import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
@@ -54,8 +56,11 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var data = await apiService.get(endPoint: '/titles/utils/genres');
       List<String> genreList = [];
+      //print(data);
       for (var item in data['results']) {
-        genreList.add(item);
+        if (json.encode(item) != 'null') {
+          genreList.add(json.encode(item).replaceAll('"', ''));
+        }
       }
       return right(genreList);
     } catch (e) {
