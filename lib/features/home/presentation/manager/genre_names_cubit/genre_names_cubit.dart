@@ -9,11 +9,15 @@ class GenreNamesCubit extends Cubit<GenreNamesState> {
   GenreNamesCubit(
     this.homeRepo,
   ) : super(GenreNamesInitial());
+  List<String> genreNames = [];
   final HomeRepo homeRepo;
   Future<void> fetchGenreNames() async {
     emit(GenreNamesLoading());
     var result = await homeRepo.fetchgenreNames();
     result.fold((failure) => emit(GenreNamesFailure(failure.errMessage)),
-        (genreList) => emit(GenreNamesSuccess(genreList)));
+        (genreList) {
+      genreNames = genreList;
+      emit(GenreNamesSuccess(genreList));
+    });
   }
 }
