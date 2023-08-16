@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "244143438224",
+    "project_id": "movies-db-7d7b2",
+    "storage_bucket": "movies-db-7d7b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244143438224:android:d2d66e74f0ef5d262d5b15",
+        "android_client_info": {
+          "package_name": "com.example.whats_for_tonight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244143438224-ol47ab2t98fvmh697fgl8538tt9d82dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVCPfnIGzRp6uDXl0gA9R3ZDCLK6BrKbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244143438224-ol47ab2t98fvmh697fgl8538tt9d82dd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

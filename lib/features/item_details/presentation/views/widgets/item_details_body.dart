@@ -38,7 +38,7 @@ class ItemDetailsBody extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        'IMDB 8.4/',
+                        'IMDB NA/',
                         style: TextStyle(color: Colors.black),
                       ),
                       Text(
