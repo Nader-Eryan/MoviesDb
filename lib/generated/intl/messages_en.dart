@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "Language": MessageLookupByLibrary.simpleMessage("Language"),
         "Light": MessageLookupByLibrary.simpleMessage("Light"),
+        "NavToProfileToUpdatePic": MessageLookupByLibrary.simpleMessage(
+            "Navigate to your profile page to update your picture"),
         "OrUseSocialMedial":
             MessageLookupByLibrary.simpleMessage("Or use social media"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),

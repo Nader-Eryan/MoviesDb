@@ -359,6 +359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Navigate to your profile page to update your picture`
+  String get NavToProfileToUpdatePic {
+    return Intl.message(
+      'Navigate to your profile page to update your picture',
+      name: 'NavToProfileToUpdatePic',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

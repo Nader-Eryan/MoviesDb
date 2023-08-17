@@ -29,5 +29,6 @@
     "Profile": "Profile",
     "Favorites": "Favorites",
     "Home": "Home",
-    "SearchForAValidShow": "Please search for a valid show name!"
+    "SearchForAValidShow": "Please search for a valid show name!",
+    "NavToProfileToUpdatePic":"Navigate to your profile page to update your picture"
 }

@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Home": MessageLookupByLibrary.simpleMessage("الصفحة الرئيسية"),
         "Language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "Light": MessageLookupByLibrary.simpleMessage("مضئ"),
+        "NavToProfileToUpdatePic": MessageLookupByLibrary.simpleMessage(
+            "انتقل الى صفحتك الشخصية لتغيير الصورة"),
         "OrUseSocialMedial": MessageLookupByLibrary.simpleMessage(
             "أو استخدم وسائل التواصل الاجتماعي"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),

@@ -31,7 +31,9 @@
     "Profile" : "الملف الشخصي",
     "Favorites" : "المفضلات",
     "Home" : "الصفحة الرئيسية",
-    "SearchForAValidShow": "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!"
+    "SearchForAValidShow": "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!",
+    "NavToProfileToUpdatePic":"انتقل الى صفحتك الشخصية لتغيير الصورة"
+
 
 
 }
