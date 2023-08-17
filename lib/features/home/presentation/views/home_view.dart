@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:whats_for_tonight/core/utils/api_service.dart';
 import 'package:whats_for_tonight/core/utils/service_locator.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
 import 'package:whats_for_tonight/features/favorites/presentation/views/favorites_view.dart';
-import 'package:whats_for_tonight/features/search/data/repos/search_repo.dart';
 import 'package:whats_for_tonight/features/search/data/repos/search_repo_impl.dart';
 import 'package:whats_for_tonight/features/search/presentation/manager/cubit/search_cubit.dart';
 import 'package:whats_for_tonight/features/search/presentation/views/search_view.dart';

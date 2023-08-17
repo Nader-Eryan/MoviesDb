@@ -30,5 +30,7 @@
     "Favorites": "Favorites",
     "Home": "Home",
     "SearchForAValidShow": "Please search for a valid show name!",
-    "NavToProfileToUpdatePic":"Navigate to your profile page to update your picture"
+    "NavToProfileToUpdatePic": "Navigate to your profile page to update your picture",
+    "SignInFirst": "Please sing in to be able to use this feature",
+    "NoInfoAboutShow":"There is not info about this show"
 }

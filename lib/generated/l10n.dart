@@ -369,6 +369,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Please sing in to be able to use this feature`
+  String get SignInFirst {
+    return Intl.message(
+      'Please sing in to be able to use this feature',
+      name: 'SignInFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is not info about this show`
+  String get NoInfoAboutShow {
+    return Intl.message(
+      'There is not info about this show',
+      name: 'NoInfoAboutShow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

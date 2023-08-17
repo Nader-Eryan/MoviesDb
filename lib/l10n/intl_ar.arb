@@ -32,7 +32,9 @@
     "Favorites" : "المفضلات",
     "Home" : "الصفحة الرئيسية",
     "SearchForAValidShow": "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!",
-    "NavToProfileToUpdatePic":"انتقل الى صفحتك الشخصية لتغيير الصورة"
+    "NavToProfileToUpdatePic":"انتقل الى صفحتك الشخصية لتغيير الصورة",
+    "SignInFirst":"من فضلك سجل الدخول اولا لأستخدام هذه الميزة",
+    "NoInfoAboutShow":"لا يوجد معلومات عن هذا العمل الفنى"
 
 
 

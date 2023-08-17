@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Light": MessageLookupByLibrary.simpleMessage("مضئ"),
         "NavToProfileToUpdatePic": MessageLookupByLibrary.simpleMessage(
             "انتقل الى صفحتك الشخصية لتغيير الصورة"),
+        "NoInfoAboutShow": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد معلومات عن هذا العمل الفنى"),
         "OrUseSocialMedial": MessageLookupByLibrary.simpleMessage(
             "أو استخدم وسائل التواصل الاجتماعي"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -54,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!"),
         "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+        "SignInFirst": MessageLookupByLibrary.simpleMessage(
+            "من فضلك سجل الدخول اولا لأستخدام هذه الميزة"),
         "SignInWithApple":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام Apple"),
         "SignInWithGoogle": MessageLookupByLibrary.simpleMessage(

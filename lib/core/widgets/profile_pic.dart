@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/widgets/image_capture.dart';
 
+import '../../generated/l10n.dart';
+
 class ProfilePic extends StatelessWidget {
   const ProfilePic({super.key, this.isProfileView});
   final bool? isProfileView;
@@ -10,10 +12,10 @@ class ProfilePic extends StatelessWidget {
       onTap: () {
         if (isProfileView == null) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
+            SnackBar(
               content: Text(
-                'Navigate to your profile page to update your picture',
-                style: TextStyle(fontSize: 16),
+                S.of(context).NavToProfileToUpdatePic,
+                style: const TextStyle(fontSize: 16),
               ),
             ),
           );

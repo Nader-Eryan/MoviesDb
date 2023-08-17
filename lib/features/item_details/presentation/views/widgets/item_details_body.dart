@@ -1,25 +1,53 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 import 'package:whats_for_tonight/features/item_details/presentation/views/widgets/stack_section.dart';
+import 'package:whats_for_tonight/generated/l10n.dart';
 
-class ItemDetailsBody extends StatelessWidget {
+class ItemDetailsBody extends StatefulWidget {
   const ItemDetailsBody({
     Key? key,
     required this.showModel,
   }) : super(key: key);
   final Show showModel;
+
+  @override
+  State<ItemDetailsBody> createState() => _ItemDetailsBodyState();
+}
+
+class _ItemDetailsBodyState extends State<ItemDetailsBody> {
+  bool favColor = false;
+  bool bkColor = false;
+  bool loggedIn = false;
+  @override
+  void initState() {
+    super.initState();
+    isSignedIn();
+  }
+
+  void isSignedIn() {
+    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+      if (user == null) {
+        loggedIn = false;
+      } else {
+        loggedIn = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         SizedBox(
           height: 500.h,
           child: StackSection(
-            showModel: showModel,
+            showModel: widget.showModel,
           ),
         ),
         Padding(
@@ -51,25 +79,59 @@ class ItemDetailsBody extends StatelessWidget {
               ),
               const Spacer(),
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.favorite_border_outlined)),
+                onPressed: () {
+                  if (!loggedIn) {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text(
+                      S.of(context).SignInFirst,
+                      style: Styles.textStyleMedium16,
+                    )));
+                  } else {
+                    favColor = !favColor;
+                    setState(() {});
+                  }
+                },
+                icon: favColor == false
+                    ? const Icon(Icons.favorite_border_outlined)
+                    : const Icon(
+                        Icons.favorite,
+                        color: Colors.amber,
+                      ),
+              ),
               IconButton(
                   onPressed: () {}, icon: const Icon(Icons.share_outlined)),
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.bookmark_outline)),
+                  onPressed: () {
+                    if (!loggedIn) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(
+                        S.of(context).SignInFirst,
+                        style: Styles.textStyleMedium16,
+                      )));
+                    } else {
+                      bkColor = !bkColor;
+                      setState(() {});
+                    }
+                  },
+                  icon: bkColor == false
+                      ? const Icon(Icons.bookmark_outline)
+                      : const Icon(
+                          Icons.bookmark,
+                          color: Colors.red,
+                        )),
             ],
           ),
         ),
         Padding(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Text(showModel.originalTitleText!.text!,
+            child: Text(widget.showModel.originalTitleText!.text!,
                 style: Styles.textStyleBold28)),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
           child: Text(
-              showModel.primaryImage == null
-                  ? 'There is not much infromation about this show'
-                  : showModel.primaryImage!.caption!.plainText!,
+              widget.showModel.primaryImage == null
+                  ? S.of(context).NoInfoAboutShow
+                  : widget.showModel.primaryImage!.caption!.plainText!,
               style: TextStyle(
                   color: Colors.grey.shade500, height: 2, fontSize: 18)),
         ),

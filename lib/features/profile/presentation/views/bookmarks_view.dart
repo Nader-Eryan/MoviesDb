@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:whats_for_tonight/core/widgets/separated_list.dart';
 
 import '../../../../core/utils/functions/custom_arrow_back_app_bar.dart';
 

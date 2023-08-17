@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Light": MessageLookupByLibrary.simpleMessage("Light"),
         "NavToProfileToUpdatePic": MessageLookupByLibrary.simpleMessage(
             "Navigate to your profile page to update your picture"),
+        "NoInfoAboutShow": MessageLookupByLibrary.simpleMessage(
+            "There is not info about this show"),
         "OrUseSocialMedial":
             MessageLookupByLibrary.simpleMessage("Or use social media"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -53,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "Please search for a valid show name!"),
         "SignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "SignInFirst": MessageLookupByLibrary.simpleMessage(
+            "Please sing in to be able to use this feature"),
         "SignInWithApple":
             MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
         "SignInWithGoogle":

@@ -40,9 +40,13 @@ class ProfileView extends StatelessWidget {
                               builder: (context) => const AccountView()));
                     },
                     child: ListTile(
-                      title: Text(
-                        S.of(context).Account,
-                        style: Styles.textStyleBold18,
+                      title: Row(
+                        children: [
+                          Text(
+                            S.of(context).Account,
+                            style: Styles.textStyleBold18,
+                          ),
+                        ],
                       ),
                     ),
                   ),

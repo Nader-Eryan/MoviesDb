@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 import '../../../../../core/utils/styles.dart';
 
-ElevatedButton customButton(GlobalKey<FormBuilderState> formKey, Color color,
-    String txt, VoidCallback onPressed,
+ElevatedButton customButton(Color color, String txt, VoidCallback onPressed,
     {String? imgUrl}) {
   return ElevatedButton(
     style: ButtonStyle(
