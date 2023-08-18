@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar.dart';
@@ -224,8 +225,9 @@ class _AccountViewState extends State<AccountView> {
                           children: [
                             Expanded(
                               child: customButton(Colors.grey.withOpacity(0.7),
-                                  S.of(context).SignInWithGoogle, () {},
-                                  imgUrl: 'assets/images/google.png'),
+                                  S.of(context).SignInWithGoogle, () async {
+                                await signInWithGoogle();
+                              }, imgUrl: 'assets/images/google.png'),
                             ),
                           ],
                         ),
@@ -286,6 +288,24 @@ class _AccountViewState extends State<AccountView> {
               ),
             )),
     ));
+  }
+
+  Future<void> signInWithGoogle() async {
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    // Once signed in, return the UserCredential
+    await FirebaseAuth.instance.signInWithCredential(credential);
   }
 
   Future<void> signInUser(BuildContext context) async {
