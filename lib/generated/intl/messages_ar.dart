@@ -58,8 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "من فضلك سجل الدخول اولا لأستخدام هذه الميزة"),
-        "SignInWithApple":
-            MessageLookupByLibrary.simpleMessage("تسجيل الدخول باستخدام Apple"),
+        "SignInWithApple": MessageLookupByLibrary.simpleMessage(
+            "تسجيل الدخول باستخدام Facebook"),
         "SignInWithGoogle": MessageLookupByLibrary.simpleMessage(
             "تسجيل الدخول باستخدام Google"),
         "TheFieldCannotBeEmpty":

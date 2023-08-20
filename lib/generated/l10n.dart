@@ -170,10 +170,10 @@ class S {
     );
   }
 
-  /// `Sign in with Apple`
+  /// `Sign in with Facebook`
   String get SignInWithApple {
     return Intl.message(
-      'Sign in with Apple',
+      'Sign in with Facebook',
       name: 'SignInWithApple',
       desc: '',
       args: [],

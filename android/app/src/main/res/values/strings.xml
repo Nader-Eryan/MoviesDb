@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MoviesDb</string>
+    <string name="facebook_app_id">173055979138202</string>
+    <string name="fb_login_protocol_scheme">fb173055979138202</string>
+    <string name="facebook_client_token">440162a02f7605af59b338ccc3a84911</string>
+
+</resources>
+

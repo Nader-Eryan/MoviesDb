@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
@@ -238,8 +239,9 @@ class _AccountViewState extends State<AccountView> {
                           children: [
                             Expanded(
                               child: customButton(Colors.grey.withOpacity(0.7),
-                                  S.of(context).SignInWithApple, () {},
-                                  imgUrl: 'assets/images/apple.png'),
+                                  S.of(context).SignInWithApple, () async {
+                                await signInWithFacebook();
+                              }, imgUrl: 'assets/images/fbIcon.png'),
                             ),
                           ],
                         ),
@@ -341,5 +343,17 @@ class _AccountViewState extends State<AccountView> {
     } catch (e) {
       customSnackBar(context, e);
     }
+  }
+
+  Future<UserCredential> signInWithFacebook() async {
+    // Trigger the sign-in flow
+    final LoginResult loginResult = await FacebookAuth.instance.login();
+
+    // Create a credential from the access token
+    final OAuthCredential facebookAuthCredential =
+        FacebookAuthProvider.credential(loginResult.accessToken!.token);
+
+    // Once signed in, return the UserCredential
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }

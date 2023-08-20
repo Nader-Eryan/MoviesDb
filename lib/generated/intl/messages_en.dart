@@ -58,7 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "Please sing in to be able to use this feature"),
         "SignInWithApple":
-            MessageLookupByLibrary.simpleMessage("Sign in with Apple"),
+            MessageLookupByLibrary.simpleMessage("Sign in with Facebook"),
         "SignInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
         "TheFieldCannotBeEmpty":
