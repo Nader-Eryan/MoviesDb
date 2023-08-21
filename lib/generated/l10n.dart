@@ -389,6 +389,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign out`
+  String get SignOut {
+    return Intl.message(
+      'Sign out',
+      name: 'SignOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signed out`
+  String get SignedOut {
+    return Intl.message(
+      'Signed out',
+      name: 'SignedOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registered successfully. Enjoy!`
+  String get RegisteredSuccessfullyEnjoy {
+    return Intl.message(
+      'Registered successfully. Enjoy!',
+      name: 'RegisteredSuccessfullyEnjoy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password provided is too weak.`
+  String get ThePasswordProvidedIsTooWeak {
+    return Intl.message(
+      'The password provided is too weak.',
+      name: 'ThePasswordProvidedIsTooWeak',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The account already exists for that email.`
+  String get TheAccountAlreadyExistsForThatEmail {
+    return Intl.message(
+      'The account already exists for that email.',
+      name: 'TheAccountAlreadyExistsForThatEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wrong password provided for that user.`
+  String get WrongPasswordProvidedForThatUser {
+    return Intl.message(
+      'Wrong password provided for that user.',
+      name: 'WrongPasswordProvidedForThatUser',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No user found for that email.`
+  String get NoUserFoundForThatEmail {
+    return Intl.message(
+      'No user found for that email.',
+      name: 'NoUserFoundForThatEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signed in successfully. Enjoy!`
+  String get SignedInSuccessfullyEnjoy {
+    return Intl.message(
+      'Signed in successfully. Enjoy!',
+      name: 'SignedInSuccessfullyEnjoy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already Signed In`
+  String get AlreadySignedIn {
+    return Intl.message(
+      'Already Signed In',
+      name: 'AlreadySignedIn',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

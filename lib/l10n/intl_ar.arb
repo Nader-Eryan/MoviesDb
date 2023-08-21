@@ -34,7 +34,17 @@
     "SearchForAValidShow": "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!",
     "NavToProfileToUpdatePic":"انتقل الى صفحتك الشخصية لتغيير الصورة",
     "SignInFirst":"من فضلك سجل الدخول اولا لأستخدام هذه الميزة",
-    "NoInfoAboutShow":"لا يوجد معلومات عن هذا العمل الفنى"
+    "NoInfoAboutShow":"لا يوجد معلومات عن هذا العمل الفنى",
+
+    "SignOut" : "تسجيل الخروج",
+    "SignedOut" : "تم تسجيل الخروج",
+    "RegisteredSuccessfullyEnjoy":"تم التسجيل بنجاح. استمتع!",
+    "ThePasswordProvidedIsTooWeak":"كلمة المرور التي تم تقديمها ضعيفة جدًا.",
+    "TheAccountAlreadyExistsForThatEmail":"الحساب موجود بالفعل لهذا البريد الإلكتروني.",
+    "WrongPasswordProvidedForThatUser":"كلمة المرور خاطئة المقدمة لهذا المستخدم.",
+    "NoUserFoundForThatEmail":"لا يوجد مستخدم لهذا البريد الإلكتروني.",
+    "SignedInSuccessfullyEnjoy":"تم تسجيل الدخول بنجاح. استمتع!",
+    "AlreadySignedIn":"تم تسجيل الدخول من قبل"
 
 
 

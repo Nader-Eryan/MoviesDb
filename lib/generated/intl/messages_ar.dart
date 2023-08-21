@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Account": MessageLookupByLibrary.simpleMessage("الحساب الشخصى"),
         "AlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("هل لديك حساب بالفعل؟"),
+        "AlreadySignedIn":
+            MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول من قبل"),
         "AppTheme": MessageLookupByLibrary.simpleMessage("المظهر"),
         "Bookmarks": MessageLookupByLibrary.simpleMessage("علامات القراءة"),
         "ConfirmPasword":
@@ -47,11 +49,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "انتقل الى صفحتك الشخصية لتغيير الصورة"),
         "NoInfoAboutShow": MessageLookupByLibrary.simpleMessage(
             "لا يوجد معلومات عن هذا العمل الفنى"),
+        "NoUserFoundForThatEmail": MessageLookupByLibrary.simpleMessage(
+            "لا يوجد مستخدم لهذا البريد الإلكتروني."),
         "OrUseSocialMedial": MessageLookupByLibrary.simpleMessage(
             "أو استخدم وسائل التواصل الاجتماعي"),
         "Password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "Profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "Register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+        "RegisteredSuccessfullyEnjoy":
+            MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح. استمتع!"),
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!"),
@@ -62,11 +68,20 @@ class MessageLookup extends MessageLookupByLibrary {
             "تسجيل الدخول باستخدام Facebook"),
         "SignInWithGoogle": MessageLookupByLibrary.simpleMessage(
             "تسجيل الدخول باستخدام Google"),
+        "SignOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "SignedInSuccessfullyEnjoy": MessageLookupByLibrary.simpleMessage(
+            "تم تسجيل الدخول بنجاح. استمتع!"),
+        "SignedOut": MessageLookupByLibrary.simpleMessage("تم تسجيل الخروج"),
+        "TheAccountAlreadyExistsForThatEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "الحساب موجود بالفعل لهذا البريد الإلكتروني."),
         "TheFieldCannotBeEmpty":
             MessageLookupByLibrary.simpleMessage("لا يمكن ترك الحقل فارغًا"),
         "TheFieldRequiresAValidEmailAddress":
             MessageLookupByLibrary.simpleMessage(
                 "يتطلب الحقل عنوان بريد إلكتروني صالح"),
+        "ThePasswordProvidedIsTooWeak": MessageLookupByLibrary.simpleMessage(
+            "كلمة المرور التي تم تقديمها ضعيفة جدًا."),
         "TheValueMustBeEqualToThePassword":
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن تكون القيمة مطابقة لكلمة المرور"),
@@ -74,6 +89,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "يجب أن يكون طول القيمة أكبر من أو يساوي 8"),
         "Version": MessageLookupByLibrary.simpleMessage("النسخة الحالية"),
-        "WeRecommend": MessageLookupByLibrary.simpleMessage("نوصي ب")
+        "WeRecommend": MessageLookupByLibrary.simpleMessage("نوصي ب"),
+        "WrongPasswordProvidedForThatUser":
+            MessageLookupByLibrary.simpleMessage(
+                "كلمة المرور خاطئة المقدمة لهذا المستخدم.")
       };
 }

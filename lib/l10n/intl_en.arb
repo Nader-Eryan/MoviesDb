@@ -32,5 +32,17 @@
     "SearchForAValidShow": "Please search for a valid show name!",
     "NavToProfileToUpdatePic": "Navigate to your profile page to update your picture",
     "SignInFirst": "Please sing in to be able to use this feature",
-    "NoInfoAboutShow":"There is not info about this show"
+    "NoInfoAboutShow":"There is not info about this show",
+
+    "SignOut":"Sign out",
+    "SignedOut":"Signed out",
+    "RegisteredSuccessfullyEnjoy":"Registered successfully. Enjoy!",
+    "ThePasswordProvidedIsTooWeak":"The password provided is too weak.",
+    "TheAccountAlreadyExistsForThatEmail":"The account already exists for that email.",
+    "WrongPasswordProvidedForThatUser":"Wrong password provided for that user.",
+    "NoUserFoundForThatEmail":"No user found for that email.",
+    "SignedInSuccessfullyEnjoy":"Signed in successfully. Enjoy!",
+    "AlreadySignedIn":"Already Signed In"
+
+
 }

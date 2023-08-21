@@ -1,21 +1,19 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:size_config/size_config.dart';
-import 'package:whats_for_tonight/core/utils/constants.dart';
 import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar.dart';
-import 'package:whats_for_tonight/core/utils/functions/custom_snackbar.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
+import 'package:whats_for_tonight/features/profile/data/repos/profile_repo.dart';
+import 'package:whats_for_tonight/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/widgets/custom_button.dart';
 
+import '../../../../core/utils/functions/custom_snackbar.dart';
 import '../../../../generated/l10n.dart';
 import 'widgets/account_text_field_border.dart';
+import 'widgets/logged_section.dart';
 
 class AccountView extends StatefulWidget {
   const AccountView({super.key});
@@ -25,6 +23,7 @@ class AccountView extends StatefulWidget {
 }
 
 class _AccountViewState extends State<AccountView> {
+  final ProfileRepo _profileRepo = ProfileRepoImpl();
   final _formKey = GlobalKey<FormBuilderState>();
   bool isObscure = true, isLogin = true, loggedIn = false;
   final TextEditingController _emailController = TextEditingController();
@@ -36,8 +35,12 @@ class _AccountViewState extends State<AccountView> {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
       if (user == null) {
         loggedIn = false;
+        // customSnackBar(context, S.of(context).SignedOut);
       } else {
         loggedIn = true;
+        if (mounted) {
+          customSnackBar(context, S.of(context).SignedInSuccessfullyEnjoy);
+        }
       }
       if (mounted) {
         setState(() {});
@@ -178,17 +181,25 @@ class _AccountViewState extends State<AccountView> {
                                     ? S.of(context).SignIn
                                     : S.of(context).Register,
                                 () async {
-                                  // Validate and save the form values
-                                  // _formKey.currentState?.save();
                                   setState(() {});
 
                                   if (_formKey.currentState?.validate() ==
                                       true) {
                                     if (!isLogin) {
-                                      await registerUser(context);
+                                      await _profileRepo.registerUser(
+                                          context,
+                                          _emailController.text,
+                                          _passwordController.text);
+                                      _confirmPasswordController.clear();
                                     } else {
-                                      await signInUser(context);
+                                      if (mounted) {
+                                        await _profileRepo.signInUser(
+                                            context,
+                                            _emailController.text,
+                                            _passwordController.text);
+                                      }
                                     }
+                                    _passwordController.clear();
                                   }
                                 },
                               ),
@@ -227,7 +238,7 @@ class _AccountViewState extends State<AccountView> {
                             Expanded(
                               child: customButton(Colors.grey.withOpacity(0.7),
                                   S.of(context).SignInWithGoogle, () async {
-                                await signInWithGoogle();
+                                await _profileRepo.signInWithGoogle();
                               }, imgUrl: 'assets/images/google.png'),
                             ),
                           ],
@@ -240,7 +251,7 @@ class _AccountViewState extends State<AccountView> {
                             Expanded(
                               child: customButton(Colors.grey.withOpacity(0.7),
                                   S.of(context).SignInWithApple, () async {
-                                await signInWithFacebook();
+                                await _profileRepo.signInWithFacebook();
                               }, imgUrl: 'assets/images/fbIcon.png'),
                             ),
                           ],
@@ -268,92 +279,7 @@ class _AccountViewState extends State<AccountView> {
                 ),
               ),
             )
-          : Center(
-              child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 200.h),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    const Text(
-                      'Already signed in',
-                      style: Styles.textStyleBold18,
-                    ),
-                    const SizedBox(
-                      height: 80,
-                    ),
-                    customButton(kActiveIcon, 'Sign out', () async {
-                      await FirebaseAuth.instance.signOut();
-                      customSnackBar(context, 'Signed out');
-                    })
-                  ],
-                ),
-              ),
-            )),
+          : const LoggedSection(),
     ));
-  }
-
-  Future<void> signInWithGoogle() async {
-    // Trigger the authentication flow
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth?.accessToken,
-      idToken: googleAuth?.idToken,
-    );
-
-    // Once signed in, return the UserCredential
-    await FirebaseAuth.instance.signInWithCredential(credential);
-  }
-
-  Future<void> signInUser(BuildContext context) async {
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: _emailController.text, password: _passwordController.text);
-      _passwordController.clear();
-      customSnackBar(context, 'Signed in successfully. Enjoy!');
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        customSnackBar(context, 'No user found for that email.');
-      } else if (e.code == 'wrong-password') {
-        customSnackBar(context, 'Wrong password provided for that user.');
-      }
-    }
-  }
-
-  Future<void> registerUser(BuildContext context) async {
-    try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      _passwordController.clear();
-      _confirmPasswordController.clear();
-      customSnackBar(context, 'Registered successfully. Enjoy!');
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        customSnackBar(context, 'The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        customSnackBar(context, 'The account already exists for that email.');
-      }
-    } catch (e) {
-      customSnackBar(context, e);
-    }
-  }
-
-  Future<UserCredential> signInWithFacebook() async {
-    // Trigger the sign-in flow
-    final LoginResult loginResult = await FacebookAuth.instance.login();
-
-    // Create a credential from the access token
-    final OAuthCredential facebookAuthCredential =
-        FacebookAuthProvider.credential(loginResult.accessToken!.token);
-
-    // Once signed in, return the UserCredential
-    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }

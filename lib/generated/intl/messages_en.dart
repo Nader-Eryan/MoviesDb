@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Account": MessageLookupByLibrary.simpleMessage("Account"),
         "AlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "AlreadySignedIn":
+            MessageLookupByLibrary.simpleMessage("Already Signed In"),
         "AppTheme": MessageLookupByLibrary.simpleMessage("App theme"),
         "Bookmarks": MessageLookupByLibrary.simpleMessage("Bookmarks"),
         "ConfirmPasword":
@@ -46,11 +48,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "Navigate to your profile page to update your picture"),
         "NoInfoAboutShow": MessageLookupByLibrary.simpleMessage(
             "There is not info about this show"),
+        "NoUserFoundForThatEmail": MessageLookupByLibrary.simpleMessage(
+            "No user found for that email."),
         "OrUseSocialMedial":
             MessageLookupByLibrary.simpleMessage("Or use social media"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),
         "Profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "Register": MessageLookupByLibrary.simpleMessage("Register"),
+        "RegisteredSuccessfullyEnjoy": MessageLookupByLibrary.simpleMessage(
+            "Registered successfully. Enjoy!"),
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "Please search for a valid show name!"),
@@ -61,11 +67,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign in with Facebook"),
         "SignInWithGoogle":
             MessageLookupByLibrary.simpleMessage("Sign in with Google"),
+        "SignOut": MessageLookupByLibrary.simpleMessage("Sign out"),
+        "SignedInSuccessfullyEnjoy": MessageLookupByLibrary.simpleMessage(
+            "Signed in successfully. Enjoy!"),
+        "SignedOut": MessageLookupByLibrary.simpleMessage("Signed out"),
+        "TheAccountAlreadyExistsForThatEmail":
+            MessageLookupByLibrary.simpleMessage(
+                "The account already exists for that email."),
         "TheFieldCannotBeEmpty":
             MessageLookupByLibrary.simpleMessage("The field cannot be empty"),
         "TheFieldRequiresAValidEmailAddress":
             MessageLookupByLibrary.simpleMessage(
                 "The field requires a valid email address"),
+        "ThePasswordProvidedIsTooWeak": MessageLookupByLibrary.simpleMessage(
+            "The password provided is too weak."),
         "TheValueMustBeEqualToThePassword":
             MessageLookupByLibrary.simpleMessage(
                 "The value must be equal to the password"),
@@ -73,6 +88,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "Value must have a length greater than or equal to 8"),
         "Version": MessageLookupByLibrary.simpleMessage("Current version"),
-        "WeRecommend": MessageLookupByLibrary.simpleMessage("We Recommend")
+        "WeRecommend": MessageLookupByLibrary.simpleMessage("We Recommend"),
+        "WrongPasswordProvidedForThatUser":
+            MessageLookupByLibrary.simpleMessage(
+                "Wrong password provided for that user.")
       };
 }
