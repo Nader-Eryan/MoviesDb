@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:size_config/size_config.dart';
 
 import 'package:whats_for_tonight/core/utils/styles.dart';
+import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo.dart';
 import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 import 'package:whats_for_tonight/features/item_details/presentation/views/widgets/stack_section.dart';
 import 'package:whats_for_tonight/generated/l10n.dart';
@@ -12,9 +13,10 @@ class ItemDetailsBody extends StatefulWidget {
   const ItemDetailsBody({
     Key? key,
     required this.showModel,
+    required this.favoritesRepo,
   }) : super(key: key);
   final Show showModel;
-
+  final FavoritesRepo favoritesRepo;
   @override
   State<ItemDetailsBody> createState() => _ItemDetailsBodyState();
 }
@@ -26,7 +28,16 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
   @override
   void initState() {
     super.initState();
+    isFavorite();
     isSignedIn();
+  }
+
+  void isFavorite() async {
+    if (widget.showModel.id != null) {
+      favColor =
+          await widget.favoritesRepo.showExists(id: widget.showModel.id!);
+    }
+    setState(() {});
   }
 
   void isSignedIn() {
@@ -88,6 +99,13 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                     )));
                   } else {
                     favColor = !favColor;
+                    if (widget.showModel.id != null) {
+                      if (favColor) {
+                        widget.favoritesRepo.addShow(id: widget.showModel.id!);
+                      } else {
+                        widget.favoritesRepo.delShow(id: widget.showModel.id!);
+                      }
+                    }
                     setState(() {});
                   }
                 },
@@ -100,25 +118,6 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
               ),
               IconButton(
                   onPressed: () {}, icon: const Icon(Icons.share_outlined)),
-              IconButton(
-                  onPressed: () {
-                    if (!loggedIn) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(
-                        S.of(context).SignInFirst,
-                        style: Styles.textStyleMedium16,
-                      )));
-                    } else {
-                      bkColor = !bkColor;
-                      setState(() {});
-                    }
-                  },
-                  icon: bkColor == false
-                      ? const Icon(Icons.bookmark_outline)
-                      : const Icon(
-                          Icons.bookmark,
-                          color: Colors.red,
-                        )),
             ],
           ),
         ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:whats_for_tonight/core/utils/service_locator.dart';
 import 'package:whats_for_tonight/features/custom_button_navigation.dart/presentation/manager/cubit/page_index_cubit.dart';
+import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo_impl.dart';
+import 'package:whats_for_tonight/features/favorites/presentation/manager/cubit/favorite_shows_cubit.dart';
 import 'package:whats_for_tonight/features/favorites/presentation/views/favorites_view.dart';
 import 'package:whats_for_tonight/features/search/data/repos/search_repo_impl.dart';
 import 'package:whats_for_tonight/features/search/presentation/manager/cubit/search_cubit.dart';
@@ -67,7 +69,12 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
                   ),
                   child: const SearchView(),
                 ),
-                const FavoritesView(),
+                BlocProvider(
+                  create: (context) =>
+                      FavoriteShowsCubit(getIt.get<FavoritesRepoImpl>()),
+                  child: FavoritesView(
+                      favoritesRepo: getIt.get<FavoritesRepoImpl>()),
+                ),
                 const ProfileView(),
               ][BlocProvider.of<PageIndexCubit>(context).currentPageIndex]),
         );

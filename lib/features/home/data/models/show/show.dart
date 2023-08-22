@@ -51,7 +51,6 @@ class Show extends Equatable {
       );
 
   Map<String, dynamic> toJson() => {
-        '_id': id,
         'id': id,
         'primaryImage': primaryImage?.toJson(),
         'titleType': titleType?.toJson(),
@@ -64,7 +63,6 @@ class Show extends Equatable {
   @override
   List<Object?> get props {
     return [
-      id,
       id,
       primaryImage,
       titleType,

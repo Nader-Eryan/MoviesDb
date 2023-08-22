@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 
 class ApiService {
   final _baseUrl = 'https://moviesdatabase.p.rapidapi.com';
@@ -19,6 +20,13 @@ class ApiService {
     var respone = await _dio.get('$_baseUrl/titles/search/title/$showName',
         queryParameters: {'exact': 'Do not include in request', 'limit': 40});
     return respone.data;
+  }
+
+  Future<Show> searchById({required String id}) async {
+    setHeaders();
+    var response = await _dio.get('$_baseUrl/titles/$id');
+    print(response);
+    return response.data;
   }
 
   Future<Map<String, dynamic>> getDetails({required id}) async {

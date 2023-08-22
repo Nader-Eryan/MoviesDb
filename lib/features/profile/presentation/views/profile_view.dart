@@ -3,7 +3,6 @@ import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/about_view.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/account_view.dart';
-import 'package:whats_for_tonight/features/profile/presentation/views/bookmarks_view.dart';
 
 import '../../../../generated/l10n.dart';
 import 'widgets/brightness_section.dart';
@@ -56,23 +55,6 @@ class ProfileView extends StatelessWidget {
                     thickness: 2,
                   ),
                   const LanguageSection(),
-                  const Divider(
-                    thickness: 2,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const BookmarksView()));
-                    },
-                    child: ListTile(
-                      title: Text(
-                        S.of(context).Bookmarks,
-                        style: Styles.textStyleBold18,
-                      ),
-                    ),
-                  ),
                   const Divider(
                     thickness: 2,
                   ),
