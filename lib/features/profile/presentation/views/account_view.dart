@@ -33,20 +33,25 @@ class _AccountViewState extends State<AccountView> {
   @override
   void initState() {
     FirebaseAuth.instance.authStateChanges().listen((User? user) {
-      if (user == null) {
-        loggedIn = false;
-        // customSnackBar(context, S.of(context).SignedOut);
-      } else {
-        loggedIn = true;
-        if (mounted) {
-          customSnackBar(context, S.of(context).SignedInSuccessfullyEnjoy);
-        }
-      }
-      if (mounted) {
-        setState(() {});
-      }
+      getLoginInStatus(user);
     });
     super.initState();
+  }
+
+  void getLoginInStatus(User? user) {
+    if (user == null) {
+      loggedIn = false;
+      // customSnackBar(context, S.of(context).SignedOut);
+    } else {
+      loggedIn = true;
+
+      if (mounted) {
+        customSnackBar(context, S.of(context).SignedInSuccessfullyEnjoy);
+      }
+    }
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
