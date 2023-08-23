@@ -25,7 +25,6 @@ class ApiService {
   Future<Show> searchById({required String id}) async {
     setHeaders();
     var response = await _dio.get('$_baseUrl/titles/$id');
-    print(response);
     return response.data;
   }
 

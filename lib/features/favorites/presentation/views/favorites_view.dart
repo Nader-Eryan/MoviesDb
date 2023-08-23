@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo.dart';
@@ -16,14 +17,18 @@ class FavoritesView extends StatefulWidget {
 
 class _FavoritesViewState extends State<FavoritesView> {
   List<String> showsId = [];
+  String? uid;
   @override
   void initState() {
+    uid = FirebaseAuth.instance.currentUser?.uid;
     getShowsId();
     super.initState();
   }
 
   void getShowsId() async {
-    showsId = await widget.favoritesRepo.getShowsId();
+    if (uid != null) {
+      showsId = await widget.favoritesRepo.getShowsId(uid: uid!);
+    }
     print(showsId);
   }
 

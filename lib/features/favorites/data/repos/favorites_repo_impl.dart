@@ -14,23 +14,38 @@ class FavoritesRepoImpl implements FavoritesRepo {
 
   FavoritesRepoImpl(this.apiService);
   @override
-  Future<void> addShow({required String id}) async {
-    _favoritesRef.doc(id).set({'id': id});
+  Future<void> addShow({required String id, required String uid}) async {
+    _favoritesRef.doc().set({'id': id, 'uid': uid});
   }
 
   @override
-  Future<void> delShow({required String id}) async {
-    _favoritesRef.doc(id).delete();
+  Future<void> delShow({required String id, required String uid}) async {
+    _favoritesRef
+        .where('id', isEqualTo: id)
+        .where('uid', isEqualTo: uid)
+        .get()
+        .then((snapshot) {
+      for (var doc in snapshot.docs) {
+        doc.reference.delete();
+      }
+    });
   }
 
   @override
-  Future<bool> showExists({required String id}) async {
-    return _favoritesRef.doc(id).get().then((value) => value.exists);
+  Future<bool> showExists({required String id, required String uid}) async {
+    return _favoritesRef
+        .where('id', isEqualTo: id)
+        .where('uid', isEqualTo: uid)
+        .get()
+        .then((snapshot) {
+      return snapshot.docs.isNotEmpty;
+    });
   }
 
   @override
-  Future<List<String>> getShowsId() async {
-    QuerySnapshot querySnapshot = await _favoritesRef.get();
+  Future<List<String>> getShowsId({required String uid}) async {
+    QuerySnapshot querySnapshot =
+        await _favoritesRef.where(uid, isEqualTo: uid).get();
     final List<String> data =
         querySnapshot.docs.map((doc) => doc.data().toString()).toList();
     return data;

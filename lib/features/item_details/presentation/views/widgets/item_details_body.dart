@@ -25,17 +25,17 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
   bool favColor = false;
   bool bkColor = false;
   bool loggedIn = false;
+  String uid = ' ';
   @override
   void initState() {
     super.initState();
-    isFavorite();
     isSignedIn();
   }
 
   void isFavorite() async {
     if (widget.showModel.id != null) {
-      favColor =
-          await widget.favoritesRepo.showExists(id: widget.showModel.id!);
+      favColor = await widget.favoritesRepo
+          .showExists(id: widget.showModel.id!, uid: uid);
     }
     setState(() {});
   }
@@ -45,7 +45,9 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
       if (user == null) {
         loggedIn = false;
       } else {
+        uid = user.uid;
         loggedIn = true;
+        isFavorite();
       }
     });
   }
@@ -101,9 +103,11 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                     favColor = !favColor;
                     if (widget.showModel.id != null) {
                       if (favColor) {
-                        widget.favoritesRepo.addShow(id: widget.showModel.id!);
+                        widget.favoritesRepo
+                            .addShow(id: widget.showModel.id!, uid: uid);
                       } else {
-                        widget.favoritesRepo.delShow(id: widget.showModel.id!);
+                        widget.favoritesRepo
+                            .delShow(id: widget.showModel.id!, uid: uid);
                       }
                     }
                     setState(() {});
