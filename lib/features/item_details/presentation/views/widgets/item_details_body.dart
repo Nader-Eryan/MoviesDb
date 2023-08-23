@@ -37,7 +37,9 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
       favColor = await widget.favoritesRepo
           .showExists(id: widget.showModel.id!, uid: uid);
     }
-    setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void isSignedIn() {
