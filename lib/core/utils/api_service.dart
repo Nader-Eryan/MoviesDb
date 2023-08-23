@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 
 class ApiService {
   final _baseUrl = 'https://moviesdatabase.p.rapidapi.com';
@@ -22,16 +21,10 @@ class ApiService {
     return respone.data;
   }
 
-  Future<Show> searchById({required String id}) async {
+  Future<Map<String, dynamic>> searchById({required String id}) async {
     setHeaders();
     var response = await _dio.get('$_baseUrl/titles/$id');
     return response.data;
-  }
-
-  Future<Map<String, dynamic>> getDetails({required id}) async {
-    var respone =
-        await _dio.get('https://www.omdbapi.com/?apikey=eeb0cbc1&i=$id');
-    return respone.data;
   }
 
   void setHeaders() {

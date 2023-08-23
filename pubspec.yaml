@@ -63,7 +63,6 @@ dependencies:
   firebase_core: ^2.15.1
   firebase_auth: ^4.7.3
   cloud_firestore: ^4.8.5
-  firebase_messaging: ^14.6.6
   firebase_storage: ^11.2.6
   firebase_analytics: ^10.4.5
   google_sign_in: '^6.1.4'

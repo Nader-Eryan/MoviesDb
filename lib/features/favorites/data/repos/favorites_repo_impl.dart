@@ -45,9 +45,9 @@ class FavoritesRepoImpl implements FavoritesRepo {
   @override
   Future<List<String>> getShowsId({required String uid}) async {
     QuerySnapshot querySnapshot =
-        await _favoritesRef.where(uid, isEqualTo: uid).get();
+        await _favoritesRef.where('uid', isEqualTo: uid).get();
     final List<String> data =
-        querySnapshot.docs.map((doc) => doc.data().toString()).toList();
+        querySnapshot.docs.map((doc) => doc.get('id').toString()).toList();
     return data;
   }
 
@@ -55,8 +55,8 @@ class FavoritesRepoImpl implements FavoritesRepo {
   Future<Either<Failure, Show>> fetchShowById({required String id}) async {
     try {
       var data = await apiService.searchById(id: id);
-
-      return right(data);
+      Show show = Show.fromJson(data['results']);
+      return right(show);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
