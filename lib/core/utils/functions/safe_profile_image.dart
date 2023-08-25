@@ -1,9 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:whats_for_tonight/core/utils/service_locator.dart';
 
-Future<void> saveProfileImageToFirebase(
-    {required String path, required String uid}) async {
-  CollectionReference profilePicRef =
-      FirebaseFirestore.instance.collection('imagePath');
-
-  profilePicRef.doc().set({'path': path, 'uid': uid});
+Future<void> safeImagelocally({required String path}) async {
+  SharedPreferences prefs = await getIt.get<Future<SharedPreferences>>();
+  prefs.setString('imagePath', path);
 }

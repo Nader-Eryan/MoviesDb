@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:whats_for_tonight/core/utils/api_service.dart';
 import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo_impl.dart';
 import 'package:whats_for_tonight/features/home/data/repos/home_repo_impl.dart';
@@ -14,4 +15,6 @@ void serviceLocatorSetup() {
       SearchRepoImpl(apiService: getIt.get<ApiService>()));
   getIt.registerSingleton<FavoritesRepoImpl>(
       FavoritesRepoImpl(getIt.get<ApiService>()));
+  getIt.registerSingleton<Future<SharedPreferences>>(
+      SharedPreferences.getInstance());
 }

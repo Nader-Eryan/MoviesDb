@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:whats_for_tonight/core/utils/functions/custom_snackbar.dart';
 import 'package:whats_for_tonight/core/utils/functions/get_profile_image.dart';
@@ -17,13 +19,15 @@ class _ProfilePicState extends State<ProfilePic> {
   String? profilePicPath;
   @override
   void initState() {
+    getImage();
     super.initState();
   }
 
-  void getProfileImage() async {
-    // if (await isSignedIn() != null) {
-    //   profilePicPath = await getProfileImageFromFirebase();
-    // }
+  void getImage() async {
+    profilePicPath = await getProfileImage();
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   @override
@@ -39,8 +43,9 @@ class _ProfilePicState extends State<ProfilePic> {
       },
       child: CircleAvatar(
         radius: 24,
-        backgroundImage:
-            AssetImage(profilePicPath ?? 'assets/images/profile.jpg'),
+        backgroundImage: profilePicPath != null
+            ? FileImage(File(profilePicPath!))
+            : const AssetImage('assets/images/profile.jpg') as ImageProvider,
       ),
     );
   }

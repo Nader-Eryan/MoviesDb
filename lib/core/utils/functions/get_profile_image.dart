@@ -1,14 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-Future<String?> getProfileImageFromFirebase() async {
-  // CollectionReference profilePicRef =
-  //     FirebaseFirestore.instance.collection('imagePath');
-  // print(profilePicRef
-  //     .doc(await isSignedIn())
-  //     .get()
-  //     .then((value) => value.data().toString()));
-  // return profilePicRef
-  //     .doc(await isSignedIn())
-  //     .get()
-  //     .then((value) => value.data().toString());
+import '../service_locator.dart';
+
+Future<String?> getProfileImage() async {
+  SharedPreferences prefs = await getIt.get<Future<SharedPreferences>>();
+  String? profilePicPath = prefs.getString('imagePath');
+  return profilePicPath;
 }

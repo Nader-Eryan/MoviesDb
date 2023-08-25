@@ -109,11 +109,8 @@ class _ImageCaptureState extends State<ImageCapture> {
                       size: 30,
                     ),
                     onPressed: () {
-                      if (uid != null) {
-                        saveProfileImageToFirebase(
-                            path: _imageFile!.path, uid: uid!);
-                      }
-                      Navigator.of(context).pop();
+                      safeImagelocally(path: _imageFile!.path);
+                      popPage();
                     }, //_saveImage
                   ),
                 ],
@@ -123,5 +120,9 @@ class _ImageCaptureState extends State<ImageCapture> {
         ),
       ),
     );
+  }
+
+  void popPage() {
+    Navigator.of(context).pop();
   }
 }
