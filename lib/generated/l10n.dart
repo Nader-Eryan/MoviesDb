@@ -479,6 +479,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Add some favorites!`
+  String get AddSomeFavorites {
+    return Intl.message(
+      'Add some favorites!',
+      name: 'AddSomeFavorites',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

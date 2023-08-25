@@ -9,6 +9,7 @@ import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 
 import '../../../../core/utils/styles.dart';
 import '../../../../core/widgets/list_item.dart';
+import '../../../../generated/l10n.dart';
 import '../../../item_details/presentation/views/item_details.dart';
 import '../manager/cubit/favorite_shows_cubit.dart';
 
@@ -137,9 +138,9 @@ class _FavoritesViewState extends State<FavoritesView> {
             ),
           );
         } else {
-          return const Center(
+          return Center(
             child: Text(
-              'Add some favorites!',
+              S.of(context).AddSomeFavorites,
               style: Styles.textStyleBold20,
             ),
           );

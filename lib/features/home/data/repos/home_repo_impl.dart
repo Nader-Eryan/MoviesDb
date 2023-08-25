@@ -10,7 +10,7 @@ import 'package:whats_for_tonight/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService apiService;
-  int rand = Random().nextInt(49) + 1;
+  int rand = Random().nextInt(30) + 1;
   HomeRepoImpl(this.apiService);
   @override
   Future<Either<Failure, List<Show>>> fetchGenreShows(String genre) async {
@@ -18,7 +18,7 @@ class HomeRepoImpl implements HomeRepo {
       var data = await apiService.get(
         qParams: {
           'genre': genre,
-          'limit': 50,
+          'limit': 15,
           'startYear': 2000,
           'page': rand,
         },

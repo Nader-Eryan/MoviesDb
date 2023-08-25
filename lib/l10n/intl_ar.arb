@@ -44,7 +44,8 @@
     "WrongPasswordProvidedForThatUser":"كلمة المرور خاطئة المقدمة لهذا المستخدم.",
     "NoUserFoundForThatEmail":"لا يوجد مستخدم لهذا البريد الإلكتروني.",
     "SignedInSuccessfullyEnjoy":"تم تسجيل الدخول بنجاح. استمتع!",
-    "AlreadySignedIn":"تم تسجيل الدخول من قبل"
+    "AlreadySignedIn":"تم تسجيل الدخول من قبل",
+    "AddSomeFavorites":"اضف الى المفضلة !"
 
 
 

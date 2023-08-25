@@ -17,7 +17,7 @@ class ApiService {
       {Map<String, dynamic>? qParams, required String showName}) async {
     setHeaders();
     var respone = await _dio.get('$_baseUrl/titles/search/title/$showName',
-        queryParameters: {'exact': 'Do not include in request', 'limit': 40});
+        queryParameters: {'exact': 'Do not include in request', 'limit': 10});
     return respone.data;
   }
 

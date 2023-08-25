@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/core/widgets/custom_error_widget.dart';
-import 'package:whats_for_tonight/core/widgets/loading_widget.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/suggestion_shows_cubit/suggestion_shows_cubit.dart';
 
 import '../../../../item_details/presentation/views/item_details.dart';
@@ -88,7 +87,7 @@ class BottomListView extends StatelessWidget {
         } else if (state is SuggestionShowsFailure) {
           return CustomErrorWidget(errMessage: state.errMessage);
         } else {
-          return const CustomLoadingWidget();
+          return const Center(child: CircularProgressIndicator());
         }
       },
     );

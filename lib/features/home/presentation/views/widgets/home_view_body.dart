@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/widgets/custom_error_widget.dart';
-import 'package:whats_for_tonight/core/widgets/loading_widget.dart';
 import 'package:whats_for_tonight/features/home/presentation/manager/genre_names_cubit/genre_names_cubit.dart';
 
 import 'package:whats_for_tonight/features/home/presentation/views/widgets/genre_items_list_view.dart';
@@ -37,28 +36,20 @@ class HomeViewBody extends StatelessWidget {
             child: BlocBuilder<GenreNamesCubit, GenreNamesState>(
               builder: (context, state) {
                 if (state is GenreNamesSuccess) {
-                  return BlocBuilder<GenreNamesCubit, GenreNamesState>(
-                    builder: (context, state) {
-                      if (state is GenreNamesSuccess) {
-                        return TabBarView(
-                          controller: tabController,
-                          children: List.generate(
-                            genreNames.length,
-                            (index) =>
-                                GenreItemsListView(showName: genreNames[index]),
-                          ),
-                        );
-                      } else if (state is GenreNamesFailure) {
-                        return CustomErrorWidget(errMessage: state.errMessage);
-                      } else {
-                        return const CustomLoadingWidget();
-                      }
-                    },
+                  return TabBarView(
+                    controller: tabController,
+                    children: List.generate(
+                      genreNames.length,
+                      (index) =>
+                          GenreItemsListView(showName: genreNames[index]),
+                    ),
                   );
                 } else if (state is GenreNamesFailure) {
                   return CustomErrorWidget(errMessage: state.errMessage);
                 } else {
-                  return const CustomLoadingWidget();
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
                 }
               },
             ),

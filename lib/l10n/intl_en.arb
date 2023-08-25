@@ -42,7 +42,8 @@
     "WrongPasswordProvidedForThatUser":"Wrong password provided for that user.",
     "NoUserFoundForThatEmail":"No user found for that email.",
     "SignedInSuccessfullyEnjoy":"Signed in successfully. Enjoy!",
-    "AlreadySignedIn":"Already Signed In"
+    "AlreadySignedIn":"Already Signed In",
+    "AddSomeFavorites":"Add some favorites!"
 
 
 }
