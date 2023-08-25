@@ -77,18 +77,22 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                   color: Colors.amber,
                 ),
                 child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'IMDB NA/',
-                        style: TextStyle(color: Colors.black),
-                      ),
-                      Text(
-                        '10',
-                        style: TextStyle(color: Colors.grey.shade700),
-                      ),
-                    ],
+                  child: SizedBox(
+                    height: 40.h,
+                    width: 90.w,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'IMDB NA/',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                        Text(
+                          '10',
+                          style: TextStyle(color: Colors.grey.shade700),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
