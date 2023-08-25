@@ -1,7 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
+import 'package:get_it/get_it.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:size_config/size_config.dart';
+import 'package:whats_for_tonight/core/utils/functions/custom_snackbar.dart';
+import 'package:whats_for_tonight/core/utils/service_locator.dart';
 
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo.dart';
@@ -127,7 +135,18 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
                       ),
               ),
               IconButton(
-                  onPressed: () {}, icon: const Icon(Icons.share_outlined)),
+                  onPressed: () async {
+                    if (widget.showModel.primaryImage != null &&
+                        widget.showModel.originalTitleText != null) {
+                      await getFilePath().then((file) {
+                        XFile xFile = XFile(file.path);
+                        Share.shareXFiles([xFile],
+                            subject: 'MoviesDb share',
+                            text: widget.showModel.originalTitleText!.text!);
+                      });
+                    }
+                  },
+                  icon: const Icon(Icons.share_outlined)),
             ],
           ),
         ),
@@ -146,5 +165,11 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
         ),
       ]),
     );
+  }
+
+  Future<File> getFilePath() async {
+    File file = await DefaultCacheManager()
+        .getSingleFile(widget.showModel.primaryImage!.url!);
+    return file;
   }
 }
