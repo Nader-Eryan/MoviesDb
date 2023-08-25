@@ -65,6 +65,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "Please sing in to be able to use this feature"),
+        "SignInToAddProfilePicture": MessageLookupByLibrary.simpleMessage(
+            "Sign in to add profile picture"),
         "SignInWithApple":
             MessageLookupByLibrary.simpleMessage("Sign in with Facebook"),
         "SignInWithGoogle":

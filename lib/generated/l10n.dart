@@ -489,6 +489,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign in to add profile picture`
+  String get SignInToAddProfilePicture {
+    return Intl.message(
+      'Sign in to add profile picture',
+      name: 'SignInToAddProfilePicture',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

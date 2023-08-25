@@ -66,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "من فضلك سجل الدخول اولا لأستخدام هذه الميزة"),
+        "SignInToAddProfilePicture": MessageLookupByLibrary.simpleMessage(
+            "سجل الدخول لأضافة صورة لملفك الشخصى"),
         "SignInWithApple": MessageLookupByLibrary.simpleMessage(
             "تسجيل الدخول باستخدام Facebook"),
         "SignInWithGoogle": MessageLookupByLibrary.simpleMessage(

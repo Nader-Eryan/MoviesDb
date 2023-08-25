@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
@@ -8,6 +9,7 @@ import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar
 import 'package:whats_for_tonight/core/utils/functions/image_cropper.dart';
 
 import '../../../../../core/utils/functions/image_picker.dart';
+import '../../../../../core/utils/functions/safe_profile_image.dart';
 
 /// Widget to capture and crop the image
 class ImageCapture extends StatefulWidget {
@@ -19,10 +21,21 @@ class ImageCapture extends StatefulWidget {
 class _ImageCaptureState extends State<ImageCapture> {
   /// Active image file
   XFile? _imageFile;
+  String? uid;
 
   /// Remove image
   void _clear() {
     setState(() => _imageFile = null);
+  }
+
+  @override
+  void initState() {
+    FirebaseAuth.instance.authStateChanges().listen((event) {
+      if (event != null) {
+        uid = event.uid;
+      }
+    });
+    super.initState();
   }
 
   @override
@@ -95,45 +108,20 @@ class _ImageCaptureState extends State<ImageCapture> {
                       Icons.done,
                       size: 30,
                     ),
-                    onPressed: () {}, //_saveImage
+                    onPressed: () {
+                      if (uid != null) {
+                        saveProfileImageToFirebase(
+                            path: _imageFile!.path, uid: uid!);
+                      }
+                      Navigator.of(context).pop();
+                    }, //_saveImage
                   ),
                 ],
               ),
-              //  Uploader(file: _imageFile)
             ]
           ],
         ),
       ),
     );
   }
-
-  // Future<void> _saveImage() async {
-  //   // await SqlDb()
-  //   //     .update('Images', {'image': _imageFile!.path}, 'id = ${widget.noteId}');
-  //   if (widget.noteModel.id == 0) {
-  //     try {
-  //       await SqlDb().insert('Images', {'id': 0, 'image': _imageFile!.path});
-  //     } on Exception {
-  //       int response = await SqlDb().updateData('''
-  //       UPDATE Images
-  //       SET image = '${_imageFile!.path}'
-  //       WHERE id = 0
-  //     ''');
-  //       //print('response: $response');
-  //     }
-  //     Navigator.pushReplacement(
-  //         context, MaterialPageRoute(builder: (context) => const HomePage()));
-  //   } else {
-  //     int response = await SqlDb().insert(
-  //         'Images', {'image': _imageFile!.path, 'noteId': widget.noteModel.id});
-  //     //print('response $response');
-  //     Navigator.pushReplacement(
-  //         context,
-  //         MaterialPageRoute(
-  //             builder: (context) => NotePage(
-  //                   noteModel: widget.noteModel,
-  //                 )));
-  //   }
-
-  // }
 }

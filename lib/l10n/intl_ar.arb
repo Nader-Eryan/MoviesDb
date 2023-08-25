@@ -45,7 +45,9 @@
     "NoUserFoundForThatEmail":"لا يوجد مستخدم لهذا البريد الإلكتروني.",
     "SignedInSuccessfullyEnjoy":"تم تسجيل الدخول بنجاح. استمتع!",
     "AlreadySignedIn":"تم تسجيل الدخول من قبل",
-    "AddSomeFavorites":"اضف الى المفضلة !"
+    "AddSomeFavorites":"اضف الى المفضلة !",
+    "SignInToAddProfilePicture":"سجل الدخول لأضافة صورة لملفك الشخصى"
+
 
 
 

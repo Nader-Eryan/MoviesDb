@@ -43,7 +43,8 @@
     "NoUserFoundForThatEmail":"No user found for that email.",
     "SignedInSuccessfullyEnjoy":"Signed in successfully. Enjoy!",
     "AlreadySignedIn":"Already Signed In",
-    "AddSomeFavorites":"Add some favorites!"
+    "AddSomeFavorites":"Add some favorites!",
+    "SignInToAddProfilePicture":"Sign in to add profile picture"
 
 
 }
