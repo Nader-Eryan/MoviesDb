@@ -32,7 +32,7 @@ class TextRowHomeView extends StatelessWidget {
               }
             },
             icon: const Icon(
-              Icons.arrow_back_ios_new,
+              Icons.arrow_back_ios_sharp,
               size: 14,
             ),
           ),
