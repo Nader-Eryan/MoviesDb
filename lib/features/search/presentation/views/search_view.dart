@@ -19,7 +19,7 @@ class SearchView extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 20.h,
+            height: 25.h,
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -57,9 +57,12 @@ class SearchView extends StatelessWidget {
                   );
                 } else {
                   return Center(
-                    child: Text(
-                      S.of(context).SearchForAValidShow,
-                      style: Styles.textStyleBold18,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        S.of(context).SearchForAValidShow,
+                        style: Styles.textStyleBold18,
+                      ),
                     ),
                   );
                 }

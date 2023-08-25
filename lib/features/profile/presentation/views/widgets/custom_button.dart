@@ -23,9 +23,14 @@ ElevatedButton customButton(Color color, String txt, VoidCallback onPressed,
                 height: 30,
               )
             : const Text(''),
-        Text(
-          '   $txt',
-          style: Styles.textStyleBold18,
+        Expanded(
+          child: Center(
+            child: Text(
+              '   $txt',
+              style: Styles.textStyleBold20,
+              maxLines: 1,
+            ),
+          ),
         ),
       ],
     ),
