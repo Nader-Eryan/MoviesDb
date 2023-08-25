@@ -44,7 +44,9 @@
     "SignedInSuccessfullyEnjoy":"Signed in successfully. Enjoy!",
     "AlreadySignedIn":"Already Signed In",
     "AddSomeFavorites":"Add some favorites!",
-    "SignInToAddProfilePicture":"Sign in to add profile picture"
+    "SignInToAddProfilePicture":"Sign in to add profile picture",
+    "EnterAValidEmailFirst":"Enter a valid email first",
+    "CheckYourEmailToSetAnotherPassword":"Check your email to set another password"
 
 
 }

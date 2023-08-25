@@ -6,4 +6,5 @@ abstract class ProfileRepo {
   Future<void> registerUser(
       BuildContext context, String email, String password);
   Future<void> signInWithFacebook();
+  Future<void> resetPassword({required String email});
 }

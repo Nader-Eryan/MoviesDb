@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:whats_for_tonight/core/utils/service_locator.dart';
 import 'package:whats_for_tonight/features/profile/data/repos/profile_repo.dart';
 
 import '../../../../core/utils/functions/custom_snackbar.dart';
@@ -24,14 +25,15 @@ class ProfileRepoImpl implements ProfileRepo {
     );
 
     // Once signed in, return the UserCredential
-    await FirebaseAuth.instance.signInWithCredential(credential);
+    await getIt.get<FirebaseAuth>().signInWithCredential(credential);
   }
 
   @override
   Future<void> signInUser(
       BuildContext context, String email, String password) async {
     try {
-      await FirebaseAuth.instance
+      await getIt
+          .get<FirebaseAuth>()
           .signInWithEmailAndPassword(email: email, password: password);
       // customSnackBar(context, S.of(context).SignedInSuccessfullyEnjoy);
     } on FirebaseAuthException catch (e) {
@@ -47,10 +49,10 @@ class ProfileRepoImpl implements ProfileRepo {
   Future<void> registerUser(
       BuildContext context, String email, String password) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
+      await getIt.get<FirebaseAuth>().createUserWithEmailAndPassword(
+            email: email,
+            password: password,
+          );
       // customSnackBar(context, S.of(context).RegisteredSuccessfullyEnjoy);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -74,7 +76,12 @@ class ProfileRepoImpl implements ProfileRepo {
       final OAuthCredential facebookAuthCredential =
           FacebookAuthProvider.credential(loginResult.accessToken!.token);
       // Once signed in, return the UserCredential
-      FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+      getIt.get<FirebaseAuth>().signInWithCredential(facebookAuthCredential);
     }
+  }
+
+  @override
+  Future<void> resetPassword({required String email}) async {
+    await getIt.get<FirebaseAuth>().sendPasswordResetEmail(email: email);
   }
 }

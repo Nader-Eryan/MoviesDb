@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تم تسجيل الدخول من قبل"),
         "AppTheme": MessageLookupByLibrary.simpleMessage("المظهر"),
         "Bookmarks": MessageLookupByLibrary.simpleMessage("علامات القراءة"),
+        "CheckYourEmailToSetAnotherPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "تحقق من بريدك الالكترونى لتعيين كلمة سر جديدة"),
         "ConfirmPasword":
             MessageLookupByLibrary.simpleMessage("تأكيد كلمة المرور"),
         "Dark": MessageLookupByLibrary.simpleMessage("داكن"),
@@ -40,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "EmailUs": MessageLookupByLibrary.simpleMessage(
             "راسلنا عبر البريد الإلكتروني"),
+        "EnterAValidEmailFirst": MessageLookupByLibrary.simpleMessage(
+            "أدخل بريد الكترونى صالح اولاً"),
         "Favorites": MessageLookupByLibrary.simpleMessage("المفضلات"),
         "Feedback": MessageLookupByLibrary.simpleMessage("ملاحظات"),
         "ForgotPassword":

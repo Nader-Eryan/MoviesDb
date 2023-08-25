@@ -32,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Already Signed In"),
         "AppTheme": MessageLookupByLibrary.simpleMessage("App theme"),
         "Bookmarks": MessageLookupByLibrary.simpleMessage("Bookmarks"),
+        "CheckYourEmailToSetAnotherPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "Check your email to set another password"),
         "ConfirmPasword":
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "Dark": MessageLookupByLibrary.simpleMessage("Dark"),
@@ -39,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "Email": MessageLookupByLibrary.simpleMessage("Email"),
         "EmailUs": MessageLookupByLibrary.simpleMessage("Email us"),
+        "EnterAValidEmailFirst":
+            MessageLookupByLibrary.simpleMessage("Enter a valid email first"),
         "Favorites": MessageLookupByLibrary.simpleMessage("Favorites"),
         "Feedback": MessageLookupByLibrary.simpleMessage("Feedback"),
         "ForgotPassword":

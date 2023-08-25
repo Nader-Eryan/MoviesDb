@@ -4,18 +4,16 @@ import 'dart:io';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:get_it/get_it.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:size_config/size_config.dart';
-import 'package:whats_for_tonight/core/utils/functions/custom_snackbar.dart';
-import 'package:whats_for_tonight/core/utils/service_locator.dart';
 
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/features/favorites/data/repos/favorites_repo.dart';
 import 'package:whats_for_tonight/features/home/data/models/show/show.dart';
 import 'package:whats_for_tonight/features/item_details/presentation/views/widgets/stack_section.dart';
 import 'package:whats_for_tonight/generated/l10n.dart';
+
+import '../../../../../core/utils/service_locator.dart';
 
 class ItemDetailsBody extends StatefulWidget {
   const ItemDetailsBody({
@@ -51,7 +49,7 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
   }
 
   void isSignedIn() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    getIt.get<FirebaseAuth>().authStateChanges().listen((User? user) {
       if (user == null) {
         loggedIn = false;
       } else {

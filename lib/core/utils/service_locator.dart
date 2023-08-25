@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:whats_for_tonight/core/utils/api_service.dart';
@@ -17,4 +18,5 @@ void serviceLocatorSetup() {
       FavoritesRepoImpl(getIt.get<ApiService>()));
   getIt.registerSingleton<Future<SharedPreferences>>(
       SharedPreferences.getInstance());
+  getIt.registerSingleton<FirebaseAuth>(FirebaseAuth.instance);
 }

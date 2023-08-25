@@ -11,6 +11,7 @@ import 'package:whats_for_tonight/features/profile/data/repos/profile_repo_impl.
 import 'package:whats_for_tonight/features/profile/presentation/views/widgets/custom_button.dart';
 
 import '../../../../core/utils/functions/custom_snackbar.dart';
+import '../../../../core/utils/service_locator.dart';
 import '../../../../generated/l10n.dart';
 import 'widgets/account_text_field_border.dart';
 import 'widgets/logged_section.dart';
@@ -32,7 +33,7 @@ class _AccountViewState extends State<AccountView> {
       TextEditingController();
   @override
   void initState() {
-    FirebaseAuth.instance.authStateChanges().listen((User? user) {
+    getIt.get<FirebaseAuth>().authStateChanges().listen((User? user) {
       getLoginInStatus(user);
     });
     super.initState();
@@ -136,7 +137,21 @@ class _AccountViewState extends State<AccountView> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   TextButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      _profileRepo
+                                          .resetPassword(
+                                              email: _emailController.text)
+                                          .then((value) => customSnackBar(
+                                              context,
+                                              S
+                                                  .of(context)
+                                                  .CheckYourEmailToSetAnotherPassword))
+                                          .catchError((error) => customSnackBar(
+                                              context,
+                                              S
+                                                  .of(context)
+                                                  .EnterAValidEmailFirst));
+                                    },
                                     child: Text(
                                       S.of(context).ForgotPassword,
                                       style: Styles.textStyleMedium16.copyWith(

@@ -46,9 +46,9 @@
     "SignedInSuccessfullyEnjoy":"تم تسجيل الدخول بنجاح. استمتع!",
     "AlreadySignedIn":"تم تسجيل الدخول من قبل",
     "AddSomeFavorites":"اضف الى المفضلة !",
-    "SignInToAddProfilePicture":"سجل الدخول لأضافة صورة لملفك الشخصى"
-
-
+    "SignInToAddProfilePicture":"سجل الدخول لأضافة صورة لملفك الشخصى",
+    "EnterAValidEmailFirst":"أدخل بريد الكترونى صالح اولاً",
+    "CheckYourEmailToSetAnotherPassword":"تحقق من بريدك الالكترونى لتعيين كلمة سر جديدة"
 
 
 }

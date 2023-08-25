@@ -499,6 +499,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Enter a valid email first`
+  String get EnterAValidEmailFirst {
+    return Intl.message(
+      'Enter a valid email first',
+      name: 'EnterAValidEmailFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your email to set another password`
+  String get CheckYourEmailToSetAnotherPassword {
+    return Intl.message(
+      'Check your email to set another password',
+      name: 'CheckYourEmailToSetAnotherPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
