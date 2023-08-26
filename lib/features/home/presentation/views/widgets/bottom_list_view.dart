@@ -50,6 +50,7 @@ class BottomListView extends StatelessWidget {
                                     topLeft: Radius.circular(16),
                                     topRight: Radius.circular(16),
                                     bottomLeft: Radius.zero),
+                                isCached: false,
                               ),
                             ),
                             const SizedBox(

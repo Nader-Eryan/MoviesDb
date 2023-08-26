@@ -14,10 +14,12 @@ class ListItem extends StatelessWidget {
     this.width,
     this.borderRadius,
     required this.showModel,
+    required this.isCached,
   }) : super(key: key);
   final double? width;
   final BorderRadius? borderRadius;
   final Show showModel;
+  final bool isCached;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -27,15 +29,30 @@ class ListItem extends StatelessWidget {
         child: ClipRRect(
           borderRadius: borderRadius ?? BorderRadius.circular(24),
           child: showModel.primaryImage != null
-              ? CachedNetworkImage(
-                  progressIndicatorBuilder: (context, url, progress) =>
-                      const CustomLoadingWidget(),
-                  errorWidget: (context, url, error) =>
-                      const CustomErrorWidget(errMessage: 'Image not found!'),
-                  fit: BoxFit.fill,
-                  imageUrl: showModel.primaryImage == null
-                      ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png?20210219185637'
-                      : showModel.primaryImage!.url!)
+              ? !isCached
+                  ? Image.network(
+                      loadingBuilder: (context, child, loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        } else {
+                          return const CustomLoadingWidget();
+                        }
+                      },
+                      errorBuilder: (_, url, error) => const CustomErrorWidget(
+                          errMessage: 'Image not found!'),
+                      fit: BoxFit.fill,
+                      showModel.primaryImage == null
+                          ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png?20210219185637'
+                          : showModel.primaryImage!.url!)
+                  : CachedNetworkImage(
+                      progressIndicatorBuilder: (_, url, progress) =>
+                          const CustomLoadingWidget(),
+                      errorWidget: (_, url, error) => const CustomErrorWidget(
+                          errMessage: 'Image not found!'),
+                      fit: BoxFit.fill,
+                      imageUrl: showModel.primaryImage == null
+                          ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png?20210219185637'
+                          : showModel.primaryImage!.url!)
               : const Icon(FontAwesomeIcons.exclamation),
         ),
       ),
