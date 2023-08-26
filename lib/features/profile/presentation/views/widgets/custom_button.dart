@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:size_config/size_config.dart';
 
 import '../../../../../core/utils/styles.dart';
 
@@ -14,25 +15,33 @@ ElevatedButton customButton(Color color, String txt, VoidCallback onPressed,
       ),
     ),
     onPressed: onPressed,
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        imgUrl != null
-            ? Image.asset(
-                imgUrl,
-                height: 30,
-              )
-            : const Text(''),
-        Expanded(
-          child: Center(
-            child: Text(
-              '   $txt',
-              style: Styles.textStyleBold20,
-              maxLines: 1,
+    child: SizedBox(
+      width: 300.w,
+      height: 40.h,
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            imgUrl != null
+                ? Image.asset(
+                    imgUrl,
+                    height: 30,
+                  )
+                : const Text(''),
+            Center(
+              child: FittedBox(
+                fit: BoxFit.contain,
+                child: Text(
+                  '   $txt',
+                  style: Styles.textStyleBold28,
+                  maxLines: 1,
+                ),
+              ),
             ),
-          ),
+          ],
         ),
-      ],
+      ),
     ),
   );
 }
