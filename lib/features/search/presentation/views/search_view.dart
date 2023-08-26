@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -28,11 +26,9 @@ class SearchView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 24.0),
               child: TextField(
-                onChanged: (value) {
-                  Timer(const Duration(microseconds: 1800), () {
-                    BlocProvider.of<SearchCubit>(context)
-                        .searchShow(showName: value);
-                  });
+                onSubmitted: (value) {
+                  BlocProvider.of<SearchCubit>(context)
+                      .searchShow(showName: value);
                 },
                 decoration: InputDecoration(
                     hintText: S.of(context).Search,

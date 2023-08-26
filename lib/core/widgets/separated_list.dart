@@ -25,7 +25,7 @@ class SeparatedList extends StatelessWidget {
             );
           },
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0, vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 6),
             child: Row(children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
