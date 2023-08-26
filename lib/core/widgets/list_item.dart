@@ -31,7 +31,7 @@ class ListItem extends StatelessWidget {
           child: showModel.primaryImage != null
               ? !isCached
                   ? Image.network(
-                      scale: .09,
+                      filterQuality: FilterQuality.none,
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) {
                           return child;
@@ -46,6 +46,7 @@ class ListItem extends StatelessWidget {
                           ? 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Image_not_available.png?20210219185637'
                           : showModel.primaryImage!.url!)
                   : CachedNetworkImage(
+                      filterQuality: FilterQuality.none,
                       progressIndicatorBuilder: (_, url, progress) =>
                           const CustomLoadingWidget(),
                       errorWidget: (_, url, error) => const CustomErrorWidget(

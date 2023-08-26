@@ -60,7 +60,7 @@ class _GenreItemsListViewState extends State<GenreItemsListView> {
                 child: Stack(fit: StackFit.values.last, children: [
                   ListItem(
                     showModel: state.showList[index],
-                    isCached: false,
+                    isCached: true,
                   ),
                   Positioned(
                       left: 20.w,

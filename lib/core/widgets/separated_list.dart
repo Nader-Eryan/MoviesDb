@@ -33,7 +33,7 @@ class SeparatedList extends StatelessWidget {
                   showModel: showList[index],
                   width: 100,
                   borderRadius: BorderRadius.circular(8),
-                  isCached: false,
+                  isCached: true,
                 ),
               ),
               Padding(
