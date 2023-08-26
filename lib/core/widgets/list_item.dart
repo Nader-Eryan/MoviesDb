@@ -31,6 +31,7 @@ class ListItem extends StatelessWidget {
           child: showModel.primaryImage != null
               ? !isCached
                   ? Image.network(
+                      scale: .09,
                       loadingBuilder: (context, child, loadingProgress) {
                         if (loadingProgress == null) {
                           return child;

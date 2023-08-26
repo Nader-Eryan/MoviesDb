@@ -84,7 +84,7 @@ class _FavoritesViewState extends State<FavoritesView> {
                         showModel: showList[index],
                         width: 100,
                         borderRadius: BorderRadius.circular(8),
-                        isCached: true,
+                        isCached: false,
                       ),
                     ),
                     Padding(

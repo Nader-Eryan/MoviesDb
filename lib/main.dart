@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
+import 'package:whats_for_tonight/core/utils/api_service.dart';
 import 'package:whats_for_tonight/core/utils/bloc_observer.dart';
 import 'package:whats_for_tonight/features/home/presentation/views/splash_view.dart';
 
@@ -19,6 +20,7 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   serviceLocatorSetup();
+  getIt.get<ApiService>().setHeaders();
   Bloc.observer = SimpleBlocObserver();
   runApp(const MyApp());
 }

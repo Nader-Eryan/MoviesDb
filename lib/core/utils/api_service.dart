@@ -7,7 +7,6 @@ class ApiService {
   ApiService(this._dio);
   Future<Map<String, dynamic>> get(
       {Map<String, dynamic>? qParams, required String endPoint}) async {
-    setHeaders();
     var respone =
         await _dio.get('$_baseUrl$endPoint', queryParameters: qParams);
     return respone.data;
@@ -15,14 +14,12 @@ class ApiService {
 
   Future<Map<String, dynamic>> search(
       {Map<String, dynamic>? qParams, required String showName}) async {
-    setHeaders();
     var respone = await _dio.get('$_baseUrl/titles/search/title/$showName',
         queryParameters: {'exact': 'Do not include in request', 'limit': 12});
     return respone.data;
   }
 
   Future<Map<String, dynamic>> searchById({required String id}) async {
-    setHeaders();
     var response = await _dio.get('$_baseUrl/titles/$id');
     return response.data;
   }
