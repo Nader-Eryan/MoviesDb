@@ -18,73 +18,79 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Column(
-        children: [
-          SizedBox(
-            height: 25.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: TextField(
-              onChanged: (value) {
-                Timer(const Duration(microseconds: 1800), () {
-                  BlocProvider.of<SearchCubit>(context)
-                      .searchShow(showName: value);
-                });
-              },
-              decoration: InputDecoration(
-                  hintText: S.of(context).Search,
-                  hintStyle: TextStyle(color: Colors.grey.shade500),
-                  prefixIcon: const Icon(
-                    FontAwesomeIcons.magnifyingGlass,
-                    color: kActiveIcon,
-                  ),
-                  iconColor: kActiveIcon,
-                  filled: true,
-                  focusColor: Colors.amberAccent,
-                  enabledBorder: searchFieldBorder(),
-                  focusedBorder: searchFieldBorder()),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 25.h,
             ),
-          ),
-          BlocBuilder<SearchCubit, SearchState>(
-            builder: (context, state) {
-              if (state is SearchSuccess) {
-                if (state.searchList.isNotEmpty) {
-                  return Expanded(
-                    child: MediaQuery.removePadding(
-                      context: context,
-                      removeTop: true,
-                      child: SeparatedList(
-                        showList: state.searchList,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 24.0),
+              child: TextField(
+                onChanged: (value) {
+                  Timer(const Duration(microseconds: 1800), () {
+                    BlocProvider.of<SearchCubit>(context)
+                        .searchShow(showName: value);
+                  });
+                },
+                decoration: InputDecoration(
+                    hintText: S.of(context).Search,
+                    hintStyle: TextStyle(color: Colors.grey.shade500),
+                    prefixIcon: const Icon(
+                      FontAwesomeIcons.magnifyingGlass,
+                      color: kActiveIcon,
+                    ),
+                    iconColor: kActiveIcon,
+                    filled: true,
+                    focusColor: Colors.amberAccent,
+                    enabledBorder: searchFieldBorder(),
+                    focusedBorder: searchFieldBorder()),
+              ),
+            ),
+            BlocBuilder<SearchCubit, SearchState>(
+              builder: (context, state) {
+                if (state is SearchSuccess) {
+                  if (state.searchList.isNotEmpty) {
+                    return Expanded(
+                      child: MediaQuery.removePadding(
+                        context: context,
+                        removeTop: true,
+                        child: SeparatedList(
+                          showList: state.searchList,
+                        ),
+                      ),
+                    );
+                  } else {
+                    return Center(
+                      child: FittedBox(
+                        child: Text(
+                          S.of(context).SearchForAValidShow,
+                          style: Styles.textStyleBold18,
+                        ),
+                      ),
+                    );
+                  }
+                } else if (state is SearchFailure) {
+                  return CustomErrorWidget(errMessage: state.errMessage);
+                } else if (state is SearchInitial) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 24.0, vertical: 16),
+                    child: Center(
+                      child: Text(
+                        S.of(context).SearchForAValidShow,
+                        style: Styles.textStyleBold20,
                       ),
                     ),
                   );
                 } else {
-                  return Center(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        S.of(context).SearchForAValidShow,
-                        style: Styles.textStyleBold18,
-                      ),
-                    ),
-                  );
+                  return const Center(child: CircularProgressIndicator());
                 }
-              } else if (state is SearchFailure) {
-                return CustomErrorWidget(errMessage: state.errMessage);
-              } else if (state is SearchInitial) {
-                return Center(
-                  child: Text(
-                    S.of(context).SearchForAValidShow,
-                    style: Styles.textStyleBold18,
-                  ),
-                );
-              } else {
-                return const Center(child: CircularProgressIndicator());
-              }
-            },
-          ),
-        ],
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
