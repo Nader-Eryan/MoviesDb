@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,21 +43,47 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDVCPfnIGzRp6uDXl0gA9R3ZDCLK6BrKbU',
-    appId: '1:244143438224:android:d2d66e74f0ef5d262d5b15',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyA-OysvLhtohV4cJeJQvWeV7nYiql2LfHk',
+    appId: '1:244143438224:web:7f8b27de4290e1002d5b15',
     messagingSenderId: '244143438224',
     projectId: 'movies-db-7d7b2',
+    authDomain: 'movies-db-7d7b2.firebaseapp.com',
+    databaseURL: 'https://movies-db-7d7b2-default-rtdb.firebaseio.com',
+    storageBucket: 'movies-db-7d7b2.appspot.com',
+    measurementId: 'G-V90GQ4Y62X',
+  );
+
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyDVCPfnIGzRp6uDXl0gA9R3ZDCLK6BrKbU',
+    appId: '1:244143438224:android:6376bd4e3a7cdcb92d5b15',
+    messagingSenderId: '244143438224',
+    projectId: 'movies-db-7d7b2',
+    databaseURL: 'https://movies-db-7d7b2-default-rtdb.firebaseio.com',
     storageBucket: 'movies-db-7d7b2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyBu_yd9v8gbxNXGvH0uwMk2VcjpkMOgpFI',
-    appId: '1:244143438224:ios:d87a32ed1f6f48462d5b15',
+    appId: '1:244143438224:ios:1615c289dc09ab042d5b15',
     messagingSenderId: '244143438224',
     projectId: 'movies-db-7d7b2',
+    databaseURL: 'https://movies-db-7d7b2-default-rtdb.firebaseio.com',
     storageBucket: 'movies-db-7d7b2.appspot.com',
-    iosClientId: '244143438224-4hfp5q3f2nt9sr7cqkq2psa5hvff9tfu.apps.googleusercontent.com',
-    iosBundleId: 'com.example.whatsForTonight',
+    androidClientId: '244143438224-oubvq9g12j6hf7tjfkf04md4obnctapv.apps.googleusercontent.com',
+    iosClientId: '244143438224-4l62ib36jjrog2apfbqeun07f4up62qb.apps.googleusercontent.com',
+    iosBundleId: 'com.bolanader5.MoviesDb',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyBu_yd9v8gbxNXGvH0uwMk2VcjpkMOgpFI',
+    appId: '1:244143438224:ios:1615c289dc09ab042d5b15',
+    messagingSenderId: '244143438224',
+    projectId: 'movies-db-7d7b2',
+    databaseURL: 'https://movies-db-7d7b2-default-rtdb.firebaseio.com',
+    storageBucket: 'movies-db-7d7b2.appspot.com',
+    androidClientId: '244143438224-oubvq9g12j6hf7tjfkf04md4obnctapv.apps.googleusercontent.com',
+    iosClientId: '244143438224-4l62ib36jjrog2apfbqeun07f4up62qb.apps.googleusercontent.com',
+    iosBundleId: 'com.bolanader5.MoviesDb',
   );
 }

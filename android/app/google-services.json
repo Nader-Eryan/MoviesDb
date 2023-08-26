@@ -1,20 +1,21 @@
 {
   "project_info": {
     "project_number": "244143438224",
+    "firebase_url": "https://movies-db-7d7b2-default-rtdb.firebaseio.com",
     "project_id": "movies-db-7d7b2",
     "storage_bucket": "movies-db-7d7b2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:244143438224:android:d2d66e74f0ef5d262d5b15",
+        "mobilesdk_app_id": "1:244143438224:android:6376bd4e3a7cdcb92d5b15",
         "android_client_info": {
-          "package_name": "com.example.whats_for_tonight"
+          "package_name": "com.bolanader5.MoviesDb"
         }
       },
       "oauth_client": [
         {
-          "client_id": "244143438224-ol47ab2t98fvmh697fgl8538tt9d82dd.apps.googleusercontent.com",
+          "client_id": "244143438224-4a8snn1ninmg11r71rhi93f61gevblld.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -27,8 +28,59 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "244143438224-ol47ab2t98fvmh697fgl8538tt9d82dd.apps.googleusercontent.com",
+              "client_id": "244143438224-4a8snn1ninmg11r71rhi93f61gevblld.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "244143438224-4hfp5q3f2nt9sr7cqkq2psa5hvff9tfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.whatsForTonight"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:244143438224:android:d2d66e74f0ef5d262d5b15",
+        "android_client_info": {
+          "package_name": "com.example.whats_for_tonight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "244143438224-oubvq9g12j6hf7tjfkf04md4obnctapv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.whats_for_tonight",
+            "certificate_hash": "712eb383fe43b3f422b1e35811d8579e7d7667af"
+          }
+        },
+        {
+          "client_id": "244143438224-4a8snn1ninmg11r71rhi93f61gevblld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVCPfnIGzRp6uDXl0gA9R3ZDCLK6BrKbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "244143438224-4a8snn1ninmg11r71rhi93f61gevblld.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "244143438224-4hfp5q3f2nt9sr7cqkq2psa5hvff9tfu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.whatsForTonight"
+              }
             }
           ]
         }

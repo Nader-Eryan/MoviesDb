@@ -69,6 +69,7 @@ dependencies:
   flutter_facebook_auth: ^5.0.11
   share_plus: ^7.1.0
   flutter_cache_manager: ^3.3.1
+  rename: ^2.1.1
 
 dev_dependencies:
   flutter_lints: ^2.0.2
