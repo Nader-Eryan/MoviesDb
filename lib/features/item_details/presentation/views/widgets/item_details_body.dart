@@ -49,15 +49,14 @@ class _ItemDetailsBodyState extends State<ItemDetailsBody> {
   }
 
   void isSignedIn() {
-    getIt.get<FirebaseAuth>().authStateChanges().listen((User? user) {
-      if (user == null) {
-        loggedIn = false;
-      } else {
-        uid = user.uid;
-        loggedIn = true;
-        isFavorite();
-      }
-    });
+    User? user = getIt.get<FirebaseAuth>().currentUser;
+    if (user == null) {
+      loggedIn = false;
+    } else {
+      uid = user.uid;
+      loggedIn = true;
+      isFavorite();
+    }
   }
 
   @override
