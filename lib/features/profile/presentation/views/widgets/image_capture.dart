@@ -7,6 +7,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/utils/functions/custom_arrow_back_app_bar.dart';
 import 'package:whats_for_tonight/core/utils/functions/image_cropper.dart';
+import 'package:whats_for_tonight/features/profile/presentation/views/profile_view.dart';
 
 import '../../../../../core/utils/functions/image_picker.dart';
 import '../../../../../core/utils/functions/safe_profile_image.dart';
@@ -123,6 +124,7 @@ class _ImageCaptureState extends State<ImageCapture> {
   }
 
   void popPage() {
-    Navigator.of(context).pop();
+    Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const ProfileView()));
   }
 }
