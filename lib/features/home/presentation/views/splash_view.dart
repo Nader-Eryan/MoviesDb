@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:size_config/size_config.dart';
 import 'package:whats_for_tonight/core/manager/language_cubit/language_cubit.dart';
 import 'package:whats_for_tonight/core/utils/service_locator.dart';
@@ -28,7 +29,7 @@ class _SplashViewState extends State<SplashView> {
   void initState() {
     BlocProvider.of<BrightnessCubit>(context).sharedPrefsBrightnessInit();
     BlocProvider.of<LanguageCubit>(context).sharedPrefsLanguageInit();
-
+    cacheClear();
     padding = 0;
     timer = Timer.periodic(const Duration(milliseconds: 400), (timer) {
       padding = padding == 0 ? 100 : 0;
@@ -54,6 +55,10 @@ class _SplashViewState extends State<SplashView> {
     super.initState();
   }
 
+  Future<void> cacheClear() async {
+    await DefaultCacheManager().emptyCache();
+  }
+
   @override
   void dispose() {
     timer.cancel();
@@ -62,10 +67,8 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    //bool isDark = BlocProvider.of<BrightnessCubit>(context).isDark;
     return SafeArea(
       child: Scaffold(
-          //backgroundColor: isDark ? kPrimaryDarkTheme : kPrimaryLightTheme,
           body: Center(
         child: Column(
           children: [
