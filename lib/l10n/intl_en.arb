@@ -46,7 +46,8 @@
     "AddSomeFavorites":"Add some favorites!",
     "SignInToAddProfilePicture":"Sign in to add profile picture",
     "EnterAValidEmailFirst":"Enter a valid email first",
-    "CheckYourEmailToSetAnotherPassword":"Check your email to set another password"
+    "CheckYourEmailToSetAnotherPassword":"Check your email to set another password",
+    "ShareTheApp":"Share the app"
 
 
 }

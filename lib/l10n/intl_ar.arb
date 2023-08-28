@@ -48,7 +48,9 @@
     "AddSomeFavorites":"اضف الى المفضلة !",
     "SignInToAddProfilePicture":"سجل الدخول لأضافة صورة لملفك الشخصى",
     "EnterAValidEmailFirst":"أدخل بريد الكترونى صالح اولاً",
-    "CheckYourEmailToSetAnotherPassword":"تحقق من بريدك الالكترونى لتعيين كلمة سر جديدة"
+    "CheckYourEmailToSetAnotherPassword":"تحقق من بريدك الالكترونى لتعيين كلمة سر جديدة",
+    "ShareTheApp":"شارك التطبيق"
+
 
 
 }

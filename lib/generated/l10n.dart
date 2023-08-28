@@ -519,6 +519,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Share the app`
+  String get ShareTheApp {
+    return Intl.message(
+      'Share the app',
+      name: 'ShareTheApp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

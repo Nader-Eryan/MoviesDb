@@ -68,6 +68,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Search": MessageLookupByLibrary.simpleMessage("بحث"),
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "من فضلك ابحث عن اسم فيلم او مسلسل صحيح!"),
+        "ShareTheApp": MessageLookupByLibrary.simpleMessage("شارك التطبيق"),
         "SignIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "من فضلك سجل الدخول اولا لأستخدام هذه الميزة"),

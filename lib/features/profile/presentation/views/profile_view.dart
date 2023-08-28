@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:whats_for_tonight/core/utils/styles.dart';
 import 'package:whats_for_tonight/core/widgets/profile_pic.dart';
 import 'package:whats_for_tonight/features/profile/presentation/views/about_view.dart';
@@ -56,6 +57,21 @@ class ProfileView extends StatelessWidget {
                       thickness: 2,
                     ),
                     const LanguageSection(),
+                    const Divider(
+                      thickness: 2,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Share.shareUri(Uri.parse(
+                            'https://drive.google.com/drive/folders/1Msx8AYG_XGBIE7NREo3aJxTDkIxAGQQ_?usp=sharing'));
+                      },
+                      child: ListTile(
+                        title: Text(
+                          S.of(context).ShareTheApp,
+                          style: Styles.textStyleBold18,
+                        ),
+                      ),
+                    ),
                     const Divider(
                       thickness: 2,
                     ),

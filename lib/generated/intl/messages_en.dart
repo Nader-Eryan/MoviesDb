@@ -67,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Search": MessageLookupByLibrary.simpleMessage("Search"),
         "SearchForAValidShow": MessageLookupByLibrary.simpleMessage(
             "Please search for a valid show name!"),
+        "ShareTheApp": MessageLookupByLibrary.simpleMessage("Share the app"),
         "SignIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "SignInFirst": MessageLookupByLibrary.simpleMessage(
             "Please sing in to be able to use this feature"),
