@@ -11,10 +11,18 @@ class GenreShowsCubit extends Cubit<GenreShowsState> {
     this.homeRepo,
   ) : super(GenreShowsInitial());
   final HomeRepo homeRepo;
+  Map<String, List<Show>> fetchedGenres = {};
   Future<void> fetchGenreShows({required String genre}) async {
+    if (fetchedGenres.containsKey(genre) && fetchedGenres[genre] != null) {
+      emit(GenreShowsSuccess(fetchedGenres[genre]!));
+      return;
+    }
     emit(GenreShowsLoading());
     var result = await homeRepo.fetchGenreShows(genre);
     result.fold((failure) => emit(GenreShowsFailure(failure.errMessage)),
-        (showList) => emit(GenreShowsSuccess(showList)));
+        (showList) {
+      emit(GenreShowsSuccess(showList));
+      fetchedGenres[genre] = showList;
+    });
   }
 }
