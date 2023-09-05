@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "244143438224-1mo8fvakt6vichh2qkob9o2su8m71c6u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bolanader5.MoviesDb",
+            "certificate_hash": "712eb383fe43b3f422b1e35811d8579e7d7667af"
+          }
+        },
+        {
+          "client_id": "244143438224-9ee9me2a555atjvb76ad3vf9lpq0np2j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bolanader5.MoviesDb",
+            "certificate_hash": "c9e63378ab811d972a576af08601fe6357ce3fbb"
+          }
+        },
+        {
           "client_id": "244143438224-4a8snn1ninmg11r71rhi93f61gevblld.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -50,6 +66,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "244143438224-4j35kj0p5413sq2lcbn44ln1n50931of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.whats_for_tonight",
+            "certificate_hash": "c9e63378ab811d972a576af08601fe6357ce3fbb"
+          }
+        },
         {
           "client_id": "244143438224-oubvq9g12j6hf7tjfkf04md4obnctapv.apps.googleusercontent.com",
           "client_type": 1,
