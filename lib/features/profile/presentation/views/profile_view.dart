@@ -19,9 +19,9 @@ class ProfileView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
+                children: [
                   ProfilePic(
                     isProfileView: true,
                   ),
@@ -63,7 +63,7 @@ class ProfileView extends StatelessWidget {
                     InkWell(
                       onTap: () {
                         Share.shareUri(Uri.parse(
-                            'https://drive.google.com/drive/folders/1Msx8AYG_XGBIE7NREo3aJxTDkIxAGQQ_?usp=sharing'));
+                            'https://play.google.com/store/apps/details?id=com.bolanader5.MoviesDb'));
                       },
                       child: ListTile(
                         title: Text(
